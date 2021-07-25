@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Homepage</title>
+<title>Home page</title>
 </head>
 <body>
-	<p>HI</p>
+	<p>Halo</p>
 </body>
 </html>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[3.9.17.202106211030-RELEASE]]></pluginVersion>
+	<pluginVersion><![CDATA[3.9.9.201906180643-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/webapp/WEB-INF/EcommerceWebsiteConfig-servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/website-config-servlet.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
