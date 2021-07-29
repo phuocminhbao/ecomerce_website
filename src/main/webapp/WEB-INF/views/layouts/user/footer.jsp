@@ -11,9 +11,8 @@ Clients
 	<hr class="soften" />
 	
 </section>
-
 <!--
-Footer
+footer
 -->
 <footer class="footer">
 
