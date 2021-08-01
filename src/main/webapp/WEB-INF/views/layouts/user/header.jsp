@@ -1,18 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header id="header">
 	<div class="row">
 		<div class="span4">
 			<h1>
 				<a class="logo" href="index.html"><span></span> <img
-					src="<c:url value ="/assets/user/img/logo.png"/>"
-					alt="shop"> </a>
+					src="<c:url value ="/assets/user/img/logo.png"/>" alt="shop">
+				</a>
 			</h1>
 		</div>
 		<div class="span4">
-			<div class="offerNoteWrapper">
-
-			</div>
+			<div class="offerNoteWrapper"></div>
 		</div>
 		<div class="span4 alignR">
 			<p>
@@ -38,12 +37,9 @@ Navigation Bar Section
 			</a>
 			<div class="nav-collapse">
 				<ul class="nav">
-					<li class="active"><a href="index.html">Home </a></li>
-					<li class=""><a href="list-view.html">List View</a></li>
-					<li class=""><a href="grid-view.html">Grid View</a></li>
-					<li class=""><a href="three-col.html">Three Column</a></li>
-					<li class=""><a href="four-col.html">Four Column</a></li>
-					<li class=""><a href="general.html">General Content</a></li>
+					<c:forEach var="item" items="${ menus }">
+						<li class="active"><a href="index.html">${ item.name }</a></li>
+					</c:forEach>
 				</ul>
 				<form action="#" class="navbar-search pull-left">
 					<input type="text" placeholder="Search" class="search-query span2">

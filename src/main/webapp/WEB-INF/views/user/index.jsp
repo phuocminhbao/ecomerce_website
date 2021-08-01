@@ -6,16 +6,11 @@
 	<!-- 
 Body Section 
 -->
+<h1>${ menus.size() } </h1>
 	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
-
-					<c:forEach var="item" items="${ category }">
-						<li><a href="products/${item.id }"><span class="icon-plus"></span> ${ item.name }</a></li>
-						<li>
-					</c:forEach>
-
 
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
@@ -187,7 +182,7 @@ New Products
 								VIEW</a> <a href="product_details.html"><img
 								src="assets/img/b.jpg" alt=""></a>
 							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
+								<p>Manicure</p>
 								<p>
 									<strong> $22.00</strong>
 								</p>
@@ -210,7 +205,7 @@ New Products
 								VIEW</a> <a href="product_details.html"><img
 								src="assets/img/c.jpg" alt=""></a>
 							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
+								<p>Manicure</p>
 								<p>
 									<strong> $22.00</strong>
 								</p>
@@ -233,7 +228,7 @@ New Products
 								VIEW</a> <a href="product_details.html"><img
 								src="assets/img/a.jpg" alt=""></a>
 							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
+								<p>Manicure</p>
 								<p>
 									<strong> $22.00</strong>
 								</p>
@@ -288,7 +283,7 @@ New Products
 								VIEW</a> <a href="product_details.html"><img
 								src="assets/img/e.jpg" alt=""></a>
 							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
+								<h5>Manicure</h5>
 								<h4>
 									<a class="defaultBtn" href="product_details.html"
 										title="Click to view"><span class="icon-zoom-in"></span></a> <a
@@ -305,7 +300,7 @@ New Products
 								VIEW</a> <a href="product_details.html"><img
 								src="assets/img/f.jpg" alt="" /></a>
 							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
+								<h5>Manicure</h5>
 								<h4>
 									<a class="defaultBtn" href="product_details.html"
 										title="Click to view"><span class="icon-zoom-in"></span></a> <a
@@ -328,7 +323,6 @@ New Products
 			<a class="btn btn-mini pull-right" href="#">View more <span
 				class="icon-plus"></span></a> Best selling Products
 		</div>
-	</div>
 	</div>
 </body>
 
