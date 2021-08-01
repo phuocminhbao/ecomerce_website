@@ -6,12 +6,15 @@
 	<!-- 
 Body Section 
 -->
-<h1>${ menus.size() } </h1>
 	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
-
+					<c:forEach var="item" items="${ category }">
+						<li><a href="products/${item.id }"><span
+								class="icon-plus"></span> ${ item.name }</a></li>
+						<li>
+					</c:forEach>
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
 								style="line-height: 18px;">$448.42</span>
