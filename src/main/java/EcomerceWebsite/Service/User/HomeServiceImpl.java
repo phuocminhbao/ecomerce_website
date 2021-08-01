@@ -11,7 +11,7 @@ import EcomerceWebsite.Entity.Category;
 public class HomeServiceImpl implements IHomeService{
 	@Autowired
 	private CategoryDao categoryDao;
-
+	
 	public List<Category> GetDataCategory() {
 		return categoryDao.GetDataCategory();
 	}

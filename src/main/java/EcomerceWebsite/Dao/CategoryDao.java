@@ -1,7 +1,10 @@
 package EcomerceWebsite.Dao;
 
 import java.util.ArrayList;
+
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +16,10 @@ import EcomerceWebsite.Entity.MapperCategory;
 public class CategoryDao {
 	@Autowired
 	public JdbcTemplate _jbdcTemplate;
+	
+	public CategoryDao(DataSource dataSource) {
+		this._jbdcTemplate = new JdbcTemplate(dataSource);
+	}
 	
 	public List<Category> GetDataCategory(){
 		List<Category> list = new ArrayList<Category>();
