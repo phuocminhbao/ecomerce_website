@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import EcomerceWebsite.Dao.CategoryDao;
 import EcomerceWebsite.Dao.MenuDao;
+import EcomerceWebsite.Dao.ProductsDao;
+import EcomerceWebsite.Dto.ProductsDto;
 import EcomerceWebsite.Entity.Category;
 import EcomerceWebsite.Entity.Menus;
 @Service
@@ -16,6 +18,9 @@ public class HomeServiceImpl implements IHomeService{
 	
 	@Autowired
 	private MenuDao menuDao;
+	
+	@Autowired
+	private ProductsDao productsDao;
 
 	public List<Category> GetDataCategory() {
 		return categoryDao.GetDataCategory();
@@ -23,5 +28,11 @@ public class HomeServiceImpl implements IHomeService{
 	
 	public List<Menus> GetDataMenus() {
 		return menuDao.GetDataMenus();
+	}
+	
+	public List<ProductsDto> GetDataProducts() {
+		List<ProductsDto> listProducts = productsDao.GetDataProducts();
+		listProducts.get(0).getId_color();
+		return listProducts;
 	}
 }
