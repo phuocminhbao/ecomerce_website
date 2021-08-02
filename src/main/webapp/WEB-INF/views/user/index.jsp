@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>
 <title>Home</title>
 <body>
 	<!-- 
 Body Section 
 -->
-<h1>${ menus.size() } </h1>
+	<h1>${ menus.size() }</h1>
 	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
@@ -184,71 +184,50 @@ New Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
-				<ul class="thumbnails">
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/d.jpg" alt=""></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/e.jpg" alt=""></a>
-							<div class="caption">
-								<h5>Manicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/f.jpg" alt="" /></a>
-							<div class="caption">
-								<h5>Manicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-				</ul>
+				<c:if test="${ products.size() > 0 }">
+					<ul class="thumbnails">
+
+						<c:forEach var="item" items="${ products }" varStatus="loop">
+							<li class="span4">
+								<div class="thumbnail">
+									<a class="zoomTool" href="#" title="add to cart"><span
+										class="icon-search"></span> QUICK VIEW</a> <a
+										href="chi-tiet-san-pham/${ item.id_product }"><img
+										src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
+									<div class="caption">
+										<h5>${ item.name }</h5>
+										<h4>
+											<a class="defaultBtn" href="product_details.html"
+												title="Click to view"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn" href="#" title="add to cart"><span
+												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber
+													type="number" groupingUsed="true" value="${ item.price }" />
+												$</span>
+										</h4>
+									</div>
+								</div>
+							</li>
+
+							<c:if
+								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == products.size() }">
+					</ul>
+					<c:if test="${ (loop.index + 1) < products.size() }">
+						<ul class="thumbnails">
+					</c:if>
+				</c:if>
+
+				</c:forEach>
+
+				</c:if>
 			</div>
 		</div>
-
-		<div class="well well-small">
-			<a class="btn btn-mini pull-right" href="#">View more <span
-				class="icon-plus"></span></a> Popular Products
-		</div>
+		
 		<hr>
 		<div class="well well-small">
 			<a class="btn btn-mini pull-right" href="#">View more <span
-				class="icon-plus"></span></a> Best selling Products
+				class="icon-plus"></span></a> All products
 		</div>
+		
 	</div>
 </body>
 
