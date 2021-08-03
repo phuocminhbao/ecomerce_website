@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 <title>Home</title>
 <body>
 	<!-- 
 Body Section 
 -->
-	<h1>${ menus.size() }</h1>
 	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
-
+					<c:forEach var="item" items="${ category }">
+						<li><a href="products/${item.id }"><span
+								class="icon-plus"></span> ${ item.name }</a></li>
+						<li>
+					</c:forEach>
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
 								style="line-height: 18px;">$448.42</span>
@@ -221,13 +224,13 @@ New Products
 				</c:if>
 			</div>
 		</div>
-		
+
 		<hr>
 		<div class="well well-small">
 			<a class="btn btn-mini pull-right" href="#">View more <span
 				class="icon-plus"></span></a> All products
 		</div>
-		
+
 	</div>
 </body>
 
