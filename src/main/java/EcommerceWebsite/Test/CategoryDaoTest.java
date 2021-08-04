@@ -1,4 +1,4 @@
-package EcomerceWebsite.Dao;
+package EcommerceWebsite.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +8,7 @@ class CategoryDaoTest {
 
 	@Test
 	void testGetDataCategory() {
-		fail("Not yet implemented");
+		
 	}
 
 }
