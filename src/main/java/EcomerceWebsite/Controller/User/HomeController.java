@@ -7,7 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController extends BaseController {
 	
-	@RequestMapping(value = { "/", "/home" })
+	@RequestMapping(value = { "/", "/home" }) // redirect website's link include / and home to homepage
+	//set model connect to view of data
 	public ModelAndView Index() {
 		_mvShare.addObject("category", _homeService.GetDataCategory());
 		_mvShare.addObject("products", _homeService.GetDataProducts());
@@ -15,6 +16,7 @@ public class HomeController extends BaseController {
 		return _mvShare;
 	}
 	
+	// request mapping to product url and connect to project.jsp file
 	@RequestMapping(value = "/product")
 	public ModelAndView Product() {
 		ModelAndView mv = new ModelAndView("user/product");

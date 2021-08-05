@@ -1,12 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <web-app>
+	<!-- DispatcherServlet for mapping the web and load on start up 1 for load the first map -->
 	<servlet>
 		<servlet-name>website-config</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-
+	
+	<!-- specific mapping site to define what it's gonna map -->
 	<servlet-mapping>
 		<servlet-name>website-config</servlet-name>
 		<url-pattern>/</url-pattern>

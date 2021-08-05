@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 
 import EcomerceWebsite.Service.User.HomeServiceImpl;
+
+//create a common base to control all model and view including homecontroller
 @Controller
 public class BaseController {
 	@Autowired

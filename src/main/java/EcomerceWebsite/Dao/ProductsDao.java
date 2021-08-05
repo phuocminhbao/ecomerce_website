@@ -11,7 +11,7 @@ import EcomerceWebsite.Dto.ProductsDtoMapper;
 public class ProductsDao extends BaseDao {
 	
 	private String SqlString() {
-		StringBuffer  sql = new StringBuffer();
+		StringBuffer  sql = new StringBuffer(); // add string builder for input other functions such as append...
 		sql.append("SELECT ");
 		sql.append("p.id as id_product ");
 		sql.append(", p.id_category ");
@@ -38,6 +38,7 @@ public class ProductsDao extends BaseDao {
 		return sql.toString();
 	}
 	
+	//jdbc query to get data from product dto 
 	public List<ProductsDto> GetDataProducts() {
 		String sql = SqlString();
 		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());

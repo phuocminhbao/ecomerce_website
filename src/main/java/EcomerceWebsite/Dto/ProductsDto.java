@@ -2,6 +2,7 @@ package EcomerceWebsite.Dto;
 
 import java.sql.Date;
 
+// set data from Database similar to entity folder function but this product will be seperated
 public class ProductsDto {
 	private long id_product;
 	private int id_category;
