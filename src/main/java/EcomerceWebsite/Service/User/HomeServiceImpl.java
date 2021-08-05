@@ -22,14 +22,17 @@ public class HomeServiceImpl implements IHomeService{
 	@Autowired
 	private ProductsDao productsDao;
 
+	// get list category
 	public List<Category> GetDataCategory() {
 		return categoryDao.GetDataCategory();
 	}
 	
+	// get list menus
 	public List<Menus> GetDataMenus() {
 		return menuDao.GetDataMenus();
 	}
 	
+	// get list product
 	public List<ProductsDto> GetDataProducts() {
 		List<ProductsDto> listProducts = productsDao.GetDataProducts();
 		listProducts.get(0).getId_color();

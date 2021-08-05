@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import EcomerceWebsite.Entity.MapperMenus;
 import EcomerceWebsite.Entity.Menus;
 
-
+//Get menu data from SQL database
 @Repository
 public class MenuDao extends BaseDao{
 	

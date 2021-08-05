@@ -1,3 +1,4 @@
+<!-- set user and admin for access the web and set master layout for all -->
 <decorators defaultdir="/WEB-INF/views/layouts">
 	<decorator name="user" page="user.jsp">
 		<pattern>/*</pattern>

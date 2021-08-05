@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+// set Mapper for products
 public class ProductsDtoMapper implements RowMapper<ProductsDto> {
 
 	public ProductsDto mapRow(ResultSet rs, int rowNum) throws SQLException {

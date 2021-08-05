@@ -8,6 +8,7 @@ import EcomerceWebsite.Dto.ProductsDto;
 import EcomerceWebsite.Entity.Category;
 import EcomerceWebsite.Entity.Menus;
 
+//get many data from connected tables and data from database
 public interface IHomeService {
 	@Autowired
 	public List<Category> GetDataCategory();
