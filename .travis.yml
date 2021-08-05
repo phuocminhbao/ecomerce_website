@@ -1,0 +1,4 @@
+nguage: java
+jdk:
+    - openjdk10
+      openjdk11
