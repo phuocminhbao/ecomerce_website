@@ -1,9 +1,9 @@
 language: java
 jdk:
-   - openjdk10
-   - openjdk11
-os: 
-  - linux
-dist:
-  - trusty
-  - precise
+   - openjdk8
+   - openjdk16
+
+
+
+
+
