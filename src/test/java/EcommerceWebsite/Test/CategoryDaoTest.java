@@ -1,6 +1,7 @@
 package EcommerceWebsite.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -10,8 +11,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import EcomerceWebsite.Dao.CategoryDao;
 import EcomerceWebsite.Entity.Category;
-import EcomerceWebsite.Service.User.HomeServiceImpl;
-import EcomerceWebsite.Service.User.IHomeService;
 
 class CategoryDaoTest {
 	public DriverManagerDataSource dataSource;
