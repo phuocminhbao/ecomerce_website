@@ -1,6 +1,3 @@
-
-CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'root'@'localhost';
 # Create DB
 CREATE DATABASE IF NOT EXISTS `ecomercewebsite` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `ecomercewebsite`;
