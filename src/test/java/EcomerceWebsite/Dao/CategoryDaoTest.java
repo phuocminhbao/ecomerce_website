@@ -29,7 +29,7 @@ class CategoryDaoTest {
 	}
 	
 	@Test
-	void testGetDataCategory() {
+	public void testGetDataCategory() {
 		List<Category> listCategory = dao.GetDataCategory();
 		assertTrue(!listCategory.isEmpty());
 	}
