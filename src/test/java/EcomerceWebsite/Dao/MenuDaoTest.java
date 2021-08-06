@@ -21,7 +21,7 @@ class MenuDaoTest {
 	void setupBeforeEach() {
 		dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/ecomercewebsite?autoReconnect=true&useSSL=false");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/ecomercewebsite?autoReconnect=true&useSSL=true");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 		
