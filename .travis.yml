@@ -1,0 +1,13 @@
+language: java
+jdk:
+   - openjdk8
+   - openjdk10
+services:
+  - mysql
+before_install:
+  - mysql -u root --password="" < travis.sql
+
+script: 
+  - echo "skipping tests"
+
+
