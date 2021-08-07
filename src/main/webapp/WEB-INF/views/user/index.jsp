@@ -1,21 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>
 <title>Home</title>
 <body>
 	<!-- 
 Body Section 
 -->
+	<h1>${ menus.size() }</h1>
 	<div class="row">
 		<div id="sidebar" class="span3">
 			<div class="well well-small">
 				<ul class="nav nav-list">
-
-					<c:forEach var="item" items="${ category }">
-						<li><a href="products/${item.id }"><span class="icon-plus"></span> ${ item.name }</a></li>
-						<li>
-					</c:forEach>
-
 
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
@@ -177,80 +172,6 @@ New Products
 						href="#newProductCar" data-slide="next">&rsaquo;</a>
 				</div>
 			</div>
-			<div class="row-fluid">
-				<ul class="thumbnails">
-					<li class="span4">
-						<div class="thumbnail">
-
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/b.jpg" alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/c.jpg" alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/a.jpg" alt=""></a>
-							<div class="caption cntr">
-								<p>Manicure & Pedicure</p>
-								<p>
-									<strong> $22.00</strong>
-								</p>
-								<h4>
-									<a class="shopBtn" href="#" title="add to cart"> Add to
-										cart </a>
-								</h4>
-								<div class="actionList">
-									<a class="pull-left" href="#">Add to Wish List </a> <a
-										class="pull-left" href="#"> Add to Compare </a>
-								</div>
-								<br class="clr">
-							</div>
-						</div>
-					</li>
-				</ul>
-			</div>
 		</div>
 		<!--
 	Featured Products
@@ -263,72 +184,52 @@ New Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
-				<ul class="thumbnails">
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/d.jpg" alt=""></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/e.jpg" alt=""></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-					<li class="span4">
-						<div class="thumbnail">
-							<a class="zoomTool" href="product_details.html"
-								title="add to cart"><span class="icon-search"></span> QUICK
-								VIEW</a> <a href="product_details.html"><img
-								src="assets/img/f.jpg" alt="" /></a>
-							<div class="caption">
-								<h5>Manicure & Pedicure</h5>
-								<h4>
-									<a class="defaultBtn" href="product_details.html"
-										title="Click to view"><span class="icon-zoom-in"></span></a> <a
-										class="shopBtn" href="#" title="add to cart"><span
-										class="icon-plus"></span></a> <span class="pull-right">$22.00</span>
-								</h4>
-							</div>
-						</div>
-					</li>
-				</ul>
+				<c:if test="${ products.size() > 0 }"> <!-- check if product size available or not, if yes open a ul -->
+					<ul class="thumbnails">
+
+						<c:forEach var="item" items="${ products }" varStatus="loop">
+							<li class="span4">
+								<div class="thumbnail">
+									<a class="zoomTool" href="#" title="add to cart"><span
+										class="icon-search"></span> QUICK VIEW</a> <a
+										href="chi-tiet-san-pham/${ item.id_product }"><img
+										src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
+									<div class="caption">
+										<h5>${ item.name }</h5>
+										<h4>
+											<a class="defaultBtn" href="product_details.html"
+												title="Click to view"><span class="icon-zoom-in"></span></a>
+											<a class="shopBtn" href="#" title="add to cart"><span
+												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber
+													type="number" groupingUsed="true" value="${ item.price }" />
+												$</span>
+										</h4>
+									</div>
+								</div>
+							</li>
+							<!-- index run from 0 to end, plus index with 1 to have a valid value -->
+							<!-- if index + 1 devided by 3 with 0 reminder,or if it is the last item, it will close ul tag  -->
+							<c:if
+								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == products.size() }"> 
+					</ul>
+					<!-- if index + 1 lopp < size of product, open a new ul -->
+					<c:if test="${ (loop.index + 1) < products.size() }">
+						<ul class="thumbnails">
+					</c:if>
+				</c:if>
+
+				</c:forEach>
+
+				</c:if>
 			</div>
 		</div>
-
-		<div class="well well-small">
-			<a class="btn btn-mini pull-right" href="#">View more <span
-				class="icon-plus"></span></a> Popular Products
-		</div>
+		
 		<hr>
 		<div class="well well-small">
 			<a class="btn btn-mini pull-right" href="#">View more <span
-				class="icon-plus"></span></a> Best selling Products
+				class="icon-plus"></span></a> All products
 		</div>
-	</div>
+		
 	</div>
 </body>
 

@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+//get specific entity of category from home service 
 public class MapperCategory implements RowMapper<Category>{
 	public Category mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Category category = new Category();

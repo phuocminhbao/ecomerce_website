@@ -1,24 +1,22 @@
 package EcomerceWebsite.Controller.User;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import EcomerceWebsite.Service.User.HomeServiceImpl;
-
 @Controller
-public class HomeController {
-	@Autowired
-	HomeServiceImpl HomeService;
+public class HomeController extends BaseController {
 	
-	@RequestMapping(value = { "/", "/home" })
+	@RequestMapping(value = { "/", "/home" }) // redirect website's link include / and home to homepage
+	//set model connect to view of data
 	public ModelAndView Index() {
-		ModelAndView mv = new ModelAndView("user/index");
-		mv.addObject("category", HomeService.GetDataCategory());
-		return mv;
+		_mvShare.addObject("category", _homeService.GetDataCategory());
+		_mvShare.addObject("products", _homeService.GetDataProducts());
+		_mvShare.setViewName("user/index");
+		return _mvShare;
 	}
 	
+	// request mapping to product url and connect to project.jsp file
 	@RequestMapping(value = "/product")
 	public ModelAndView Product() {
 		ModelAndView mv = new ModelAndView("user/product");

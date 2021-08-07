@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-
+		<!-- maven web dependency  -->
 		<!-- spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -46,6 +46,7 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- master layout decorator for java web -->
 		<!-- https://mvnrepository.com/artifact/opensymphony/sitemesh -->
 		<dependency>
 			<groupId>opensymphony</groupId>
@@ -53,6 +54,7 @@
 			<version>2.4.1</version>
 		</dependency>
 
+		<!-- support master layout to load css... -->
 		<!-- jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -60,6 +62,13 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- install to run Init() priority from Base Controller-->
+		<!-- javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
+		</dependency>
 
 	</dependencies>
 
