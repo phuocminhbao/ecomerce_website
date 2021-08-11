@@ -96,41 +96,18 @@ New Products
 					<div class="carousel-inner">
 						<div class="item active">
 							<ul class="thumbnails">
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img
-											src="assets/img/bootstrap-ring.png" alt="bootstrap-ring"></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img src="assets/img/i.jpg"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="#" class="tag"></a> <a
-											href="product_details.html"><img src="assets/img/g.jpg"
-											alt=""></a>
-									</div>
-								</li>
-								<li class="span3">
-									<div class="thumbnail">
-										<a class="zoomTool" href="product_details.html"
-											title="add to cart"><span class="icon-search"></span>
-											QUICK VIEW</a> <a href="product_details.html"><img
-											src="assets/img/s.png" alt=""></a>
-									</div>
-								</li>
+								<c:forEach var="item" items="${ products }" varStatus="loop">
+									<li class="span3">
+										<div class="thumbnail">
+											<a class="zoomTool" href="product_details.html"
+												title="add to cart"><span class="icon-search"></span>
+												QUICK VIEW</a> <a href="#" class="tag"></a> <a
+												href="product_details.html"><img
+												src="assets/img/bootstrap-ring.png" alt="bootstrap-ring"></a>
+										</div>
+									</li>
+
+								</c:forEach>
 							</ul>
 						</div>
 						<div class="item">
@@ -187,7 +164,8 @@ New Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
-				<c:if test="${ products.size() > 0 }"> <!-- check if product size available or not, if yes open a ul -->
+				<c:if test="${ products.size() > 0 }">
+					<!-- check if product size available or not, if yes open a ul -->
 					<ul class="thumbnails">
 
 						<c:forEach var="item" items="${ products }" varStatus="loop">
@@ -213,7 +191,7 @@ New Products
 							<!-- index run from 0 to end, plus index with 1 to have a valid value -->
 							<!-- if index + 1 devided by 3 with 0 reminder,or if it is the last item, it will close ul tag  -->
 							<c:if
-								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == products.size() }"> 
+								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == products.size() }">
 					</ul>
 					<!-- if index + 1 lopp < size of product, open a new ul -->
 					<c:if test="${ (loop.index + 1) < products.size() }">
