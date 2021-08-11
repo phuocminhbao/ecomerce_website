@@ -11,7 +11,8 @@ public class HomeController extends BaseController {
 	//set model connect to view of data
 	public ModelAndView Index() {
 		_mvShare.addObject("category", _homeService.GetDataCategory());
-		_mvShare.addObject("products", _homeService.GetDataProducts());
+		_mvShare.addObject("highlightProducts", _homeService.GetDataHighlightProducts());
+		_mvShare.addObject("newProducts", _homeService.GetDataNewProducts());
 		_mvShare.setViewName("user/index");
 		return _mvShare;
 	}

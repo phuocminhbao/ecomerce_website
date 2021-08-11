@@ -94,10 +94,10 @@ New Products
 			<div class="row-fluid">
 				<div id="newProductCar" class="carousel slide">
 					<div class="carousel-inner">
-						<c:if test="${ products.size() > 0 }">
+						<c:if test="${ newProducts.size() > 0 }">
 							<div class="item active">
 								<ul class="thumbnails">
-									<c:forEach var="item" items="${ products }" varStatus="loop">
+									<c:forEach var="item" items="${ newProducts }" varStatus="loop">
 										<li class="span3">
 											<div class="thumbnail">
 												<a class="zoomTool" href="product_details.html"
@@ -108,10 +108,10 @@ New Products
 											</div>
 										</li>
 										<c:if
-											test="${ (loop.index + 1) % 4 == 0 || (loop.index + 1)  == products.size() }">
+											test="${ (loop.index + 1) % 4 == 0 || (loop.index + 1)  == newProducts.size() }">
 								</ul>
 							</div>
-							<c:if test="${ (loop.index + 1) < products.size() }">
+							<c:if test="${ (loop.index + 1) < newProducts.size() }">
 							<div class ="item">
 								<ul class="thumbnails">
 							</c:if>
@@ -132,16 +132,16 @@ New Products
 		<div class="well well-small">
 			<h3>
 				<a class="btn btn-mini pull-right" href="products.html"
-					title="View more">VIew More<span class="icon-plus"></span></a>
+					title="View more">View More<span class="icon-plus"></span></a>
 				Featured Products
 			</h3>
 			<hr class="soften" />
 			<div class="row-fluid">
-				<c:if test="${ products.size() > 0 }">
+				<c:if test="${ highlightProducts.size() > 0 }">
 					<!-- check if product size available or not, if yes open a ul -->
 					<ul class="thumbnails">
 
-						<c:forEach var="item" items="${ products }" varStatus="loop">
+						<c:forEach var="item" items="${ highlightProducts }" varStatus="loop">
 							<li class="span4">
 								<div class="thumbnail">
 									<a class="zoomTool" href="#" title="add to cart"><span
@@ -164,10 +164,10 @@ New Products
 							<!-- index run from 0 to end, plus index with 1 to have a valid value -->
 							<!-- if index + 1 devided by 3 with 0 reminder,or if it is the last item, it will close ul tag  -->
 							<c:if
-								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == products.size() }">
+								test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == highlightProducts.size() }">
 					</ul>
 					<!-- if index + 1 lopp < size of product, open a new ul -->
-					<c:if test="${ (loop.index + 1) < products.size() }">
+					<c:if test="${ (loop.index + 1) < highlightProducts.size() }">
 						<ul class="thumbnails">
 					</c:if>
 				</c:if>

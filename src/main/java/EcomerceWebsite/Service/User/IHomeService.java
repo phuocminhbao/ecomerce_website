@@ -13,5 +13,6 @@ public interface IHomeService {
 	@Autowired
 	public List<Category> GetDataCategory();
 	public List<Menus> GetDataMenus();
-	public List<ProductsDto> GetDataProducts();
+	public List<ProductsDto> GetDataNewProducts();
+	public List<ProductsDto> GetDataHighlightProducts();
 }
