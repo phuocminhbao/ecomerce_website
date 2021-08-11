@@ -17,7 +17,10 @@ public class ProductsDao extends BaseDao {
 		this._jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	private String SqlString() {
+	private final boolean YES = true;
+	private final boolean NO = false;
+	
+	private StringBuffer SqlString() {
 		StringBuffer  sql = new StringBuffer(); // add string builder for input other functions such as append...
 		sql.append("SELECT ");
 		sql.append("p.id AS id_product ");
@@ -39,15 +42,32 @@ public class ProductsDao extends BaseDao {
 		sql.append("INNER JOIN ");
 		sql.append("colors AS c ");
 		sql.append("ON p.id = c.id_product ");
+		return sql;
+	}
+	
+	private String SqlProductString(boolean newProduct, boolean highLight) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("WHERE 1=1 ");		// Make Condition always true
+		if (highLight ) {
+			sql.append("AND p.highlight = true ");
+		}
+		if (newProduct ) {
+			sql.append("AND p.new_product = true ");
+		}
 		sql.append("GROUP BY p.id, c.id_product ");
 		sql.append("ORDER BY RAND() ");
-		sql.append("LIMIT 9 ");
+		if (highLight ) {
+			sql.append("LIMIT 9 ");
+		}
+		if (newProduct ) {
+			sql.append("LIMIT 12 ");
+		}
 		return sql.toString();
 	}
 	
 	//jdbc query to get data from product dto 
 	public List<ProductsDto> GetDataProducts() {
-		String sql = SqlString();
+		String sql = SqlProductString(YES, NO);
 		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
 		return listProducts;
 	}
