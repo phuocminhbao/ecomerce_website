@@ -9,7 +9,7 @@ public class CategoryController {
 	
 	@RequestMapping(value = "/items/{id}")
 	public ModelAndView Product(@PathVariable String id) {
-		ModelAndView mv = new ModelAndView("user/category");
+		ModelAndView mv = new ModelAndView("user/products/category");
 		mv.addObject("idCategory", id);
 		return mv;
 	}
