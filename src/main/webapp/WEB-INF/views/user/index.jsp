@@ -11,7 +11,7 @@ Body Section
 			<div class="well well-small">
 				<ul class="nav nav-list">
 					<c:forEach var="item" items="${ category }">
-						<li><a href="products/${item.id }"><span
+						<li><a href='<c:url value="/items/${ item.id }"/>'><span
 								class="icon-plus"></span> ${ item.name }</a></li>
 						<li>
 					</c:forEach>
