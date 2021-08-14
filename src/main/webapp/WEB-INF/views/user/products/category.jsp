@@ -29,7 +29,7 @@
 </style>
 </head>
 <body>
-<h1>${ idCategory }</h1>
+<h1>${ AllProductsByID.size() }</h1>
 	<div class="well well-small">
 		<div class="row">
 			<span style="margin-left: 25px;">Item lists</span> 

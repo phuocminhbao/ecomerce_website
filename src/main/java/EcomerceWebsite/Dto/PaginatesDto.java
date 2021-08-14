@@ -3,7 +3,7 @@ package EcomerceWebsite.Dto;
 public class PaginatesDto {
 	private int currentPage, limit, start, end, totalPage;
 	// Output number of pages from pagination, including limit, start end, total pages 
-	public PaginatesDto(int currentPage, int limit, int start, int end, int totalPage) {
+	public PaginatesDto() {
 		super();
 	}
 

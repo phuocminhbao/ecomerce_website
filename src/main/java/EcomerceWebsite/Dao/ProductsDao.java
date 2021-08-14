@@ -47,7 +47,7 @@ public class ProductsDao extends BaseDao {
 	
 	private String SqlProductString(boolean newProduct, boolean highLight) {
 		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
-		sql.append("WHERE 1=1 ");		// Make Condition always true
+		sql.append("WHERE 1 = 1 ");		// Make Condition always true
 		if (highLight ) {
 			sql.append("AND p.highlight = true ");
 		}
@@ -65,6 +65,20 @@ public class ProductsDao extends BaseDao {
 		return sql.toString();
 	}
 	
+	private String SqlProductByID(int id) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("WHERE 1 = 1 ");		// Make Condition always true
+		sql.append("AND id_category = " + id + " ");
+
+		return sql.toString();
+	}
+	
+	private String SqlProductByPaginate(int start, int end) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("LIMIT  " + start + ", " + end);	
+		return sql.toString();
+	}
+	
 	//jdbc query to get data from product dto 
 	public List<ProductsDto> GetDataHighlightProducts() {
 		String sql = SqlProductString(NO, YES);
@@ -74,9 +88,19 @@ public class ProductsDao extends BaseDao {
 	
 	public List<ProductsDto> GetDataNewProducts() {
 		String sql = SqlProductString(YES, NO);
+		List<ProductsDto> listProducts = 	_jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProducts;
+	}
+	
+	public List<ProductsDto> GetAllProductsByID(int id) {
+		String sql = SqlProductByID(id);
 		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
 		return listProducts;
 	}
 	
-	
+	public List<ProductsDto> GetDataProductsPaginate(int start, int end) {
+		String sql = SqlProductByPaginate(start, end);
+		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProducts;
+	}
 }
