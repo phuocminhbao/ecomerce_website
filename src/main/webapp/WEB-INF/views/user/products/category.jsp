@@ -93,7 +93,7 @@
 
 	</div>
 	<div class="pagination">
-	<c:forEach var ="item" begin ="${ paginateInfo.start + 1}"  end ="${ paginateInfo.end + 1}" varStatus ="loop">
+	<c:forEach var ="item" begin ="1"  end ="${ paginateInfo.totalPage }" varStatus ="loop">
 		<c:if test="${ (loop.index) == paginateInfo.currentPage }">
 			<a href="<c:url value ="/items/${ idCategory }/${ loop.index } "/>" class="active">${ loop.index }</a>
 		</c:if>

@@ -19,8 +19,8 @@ public class CategoryServiceImpl implements ICategoryService{
 	}
 	
 	@Override
-	public List<ProductsDto> GetDataProductsPaginate(int start, int end){
-		List<ProductsDto> list = productsDao.GetDataProductsPaginate(start, end);
+	public List<ProductsDto> GetDataProductsPaginate(int id, int start, int totalPage){
+		List<ProductsDto> list = productsDao.GetDataProductsPaginate(id, start, totalPage);
 		return list;
 	}
 

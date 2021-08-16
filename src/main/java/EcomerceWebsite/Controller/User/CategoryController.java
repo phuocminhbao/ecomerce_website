@@ -18,18 +18,32 @@ public class CategoryController extends BaseController{
 	private PaginatesServiceImpl paginateService;
 	
 	private int totalProductsEachPage = 9;
-	private int startPage = 1;
 	
 	@RequestMapping(value = "/items/{id}")
 	public ModelAndView Product(@PathVariable String id) {
 		_mvShare.setViewName("user/products/category");
+		int startPage = 1;
 		int totalData = categoryService.GetALLProductsByID(Integer.parseInt(id)).size();
 		
 		// Category page will start with the page 1 and each page will have maximum 9 products showed
 		PaginatesDto paginateInfo = paginateService.GetInfoPaginates(totalData, totalProductsEachPage, startPage);
 		_mvShare.addObject("idCategory", id);
 		_mvShare.addObject("paginateInfo", paginateInfo);
-		_mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(paginateInfo.getStart(), paginateInfo.getEnd()));
+		_mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart(), totalProductsEachPage));
+
+		return _mvShare;
+	}
+	
+	@RequestMapping(value = "/items/{id}/{currentPage}")
+	public ModelAndView Product(@PathVariable String id, @PathVariable String currentPage) {
+		_mvShare.setViewName("user/products/category");
+		int totalData = categoryService.GetALLProductsByID(Integer.parseInt(id)).size();
+		
+		// Category page will start with the page 1 and each page will have maximum 9 products showed
+		PaginatesDto paginateInfo = paginateService.GetInfoPaginates(totalData, totalProductsEachPage, Integer.parseInt(currentPage));
+		_mvShare.addObject("idCategory", id);
+		_mvShare.addObject("paginateInfo", paginateInfo);
+		_mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id), paginateInfo.getStart(), totalProductsEachPage));
 
 		return _mvShare;
 	}
