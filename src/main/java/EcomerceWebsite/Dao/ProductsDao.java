@@ -1,10 +1,8 @@
 package EcomerceWebsite.Dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import EcomerceWebsite.Dto.ProductsDto;
@@ -12,10 +10,6 @@ import EcomerceWebsite.Dto.ProductsDtoMapper;
 
 @Repository
 public class ProductsDao extends BaseDao {
-	
-	public ProductsDao(DataSource dataSource) {
-		this._jdbcTemplate = new JdbcTemplate(dataSource);
-	}
 
 	private final boolean YES = true;
 	private final boolean NO = false;
@@ -99,8 +93,27 @@ public class ProductsDao extends BaseDao {
 	}
 	
 	public List<ProductsDto> GetDataProductsPaginate(int id, int start, int totalPage) {
-		String sql = SqlProductByPaginate(id, start, totalPage);
-		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		StringBuffer sqlGetDataByID = SqlProductByID(id);
+		List<ProductsDto> listProductsByID = _jdbcTemplate.query(sqlGetDataByID.toString(), new ProductsDtoMapper());
+		List<ProductsDto> listProducts = new ArrayList<ProductsDto>();
+		if(listProductsByID.size() > 0) {
+			String sql = SqlProductByPaginate(id, start, totalPage);
+			listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		}
 		return listProducts;
+	}
+
+	private String SqlProductByID(long id) {
+		StringBuffer sql = SqlString();
+		sql.append("WHERE 1 = 1 ");
+		sql.append("AND p.id = " + id + " ");
+		sql.append("LIMIT 1 ");
+		return sql.toString();
+	}
+	
+	public List<ProductsDto> GetProductByID(long id) {
+		String sql = SqlProductByID(id);
+		List<ProductsDto> listProduct = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProduct;
 	}
 }
