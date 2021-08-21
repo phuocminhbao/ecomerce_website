@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>
 <header id="header">
 	<div class="row">
 		<div class="span4">
@@ -17,7 +17,7 @@
 			<p>
 				<br>
 			</p>
-			<span class="btn btn-mini">[ 2 ] <span
+			<span class="btn btn-mini">[ ${ TotalQuantyCart } ] <span
 				class="icon-shopping-cart"></span></span> <span
 				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
 			<span class="btn btn-mini">&euro;</span>

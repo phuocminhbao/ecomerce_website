@@ -17,7 +17,7 @@ Body Section
 					</c:forEach>
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
-								style="line-height: 18px;">$448.42</span>
+								style="line-height: 18px;"><fmt:formatNumber type="number" groupingUsed="true" value="${ TotalPriceCart }"/> ₫</span>
 						</strong></a></li>
 				</ul>
 			</div>
@@ -84,14 +84,14 @@ New Products
 								<div class="thumbnail">
 									<a class="zoomTool" href="#" title="add to cart"><span
 										class="icon-search"></span> QUICK VIEW</a> <a
-										href="chi-tiet-san-pham/${ item.id_product }"><img
+										href="productdetail/${ item.id_product }"><img
 										src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
 									<div class="caption">
 										<h5>${ item.name }</h5>
 										<h4>
 											<a class="defaultBtn" href="product_details.html"
 												title="Click to view"><span class="icon-zoom-in"></span></a>
-											<a class="shopBtn" href="#" title="add to cart"><span
+											<a class="shopBtn" href="<c:url value="/AddCart/${ item.id_product }"/>" title="add to cart"><span
 												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber
 													type="number" groupingUsed="true" value="${ item.price }" />
 												$</span>

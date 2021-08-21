@@ -18,9 +18,9 @@ public class HomeController extends BaseController {
 	}
 	
 	// request mapping to product url and connect to project.jsp file
-	@RequestMapping(value = "/product")
-	public ModelAndView Product() {
-		ModelAndView mv = new ModelAndView("user/product");
-		return mv;
-	}
+//	@RequestMapping(value = "/product")
+//	public ModelAndView Product() {
+//		ModelAndView mv = new ModelAndView("user/product");
+//		return mv;
+//	}
 }
