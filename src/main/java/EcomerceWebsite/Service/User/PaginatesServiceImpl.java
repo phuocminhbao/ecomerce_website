@@ -9,7 +9,7 @@ public class PaginatesServiceImpl {
 
 	public PaginatesDto GetInfoPaginates(int totalData, int limit, int currentPage) {
 		PaginatesDto paginate = new PaginatesDto();
-		paginate.setLimit(limit);;
+		paginate.setLimit(CheckLimit(limit));;
 		paginate.setTotalPage(SetInfoTotalPage(totalData, limit));
 		paginate.setCurrentPage(CheckCurrentPage(currentPage ,paginate.getTotalPage()));
 		int start = FindStart(paginate.getCurrentPage(), limit);
@@ -19,24 +19,28 @@ public class PaginatesServiceImpl {
 		return paginate;
 	}
 
-	private int FindEnd(int start, int limit, int totalData) {
+	protected int FindEnd(int start, int limit, int totalData) {
 		return start + limit > totalData ? totalData : (start + limit) -1;
 	}
 
-	private int FindStart(int currentPage, int limit) {
+	protected int FindStart(int currentPage, int limit) {
 		//int start = ((currentPage - 1) * limit) +1 ; This won't show the first products in database (at the 0 order)
 		int start = ((currentPage - 1) * limit);
+		if (start < 0) {
+			return 0;
+		}
+		else 
 		return start;
 	}
 
-	private int SetInfoTotalPage(int totalData, int limit) {
+	protected int SetInfoTotalPage(int totalData, int limit) {
 		int totalPage = 0;
 		totalPage = totalData / limit;
 		totalPage = totalPage * limit < totalData ? totalPage + 1 : totalPage;
 		return totalPage;
 	}
 	
-	public int CheckCurrentPage(int currentPage, int totalPage) {
+	protected int CheckCurrentPage(int currentPage, int totalPage) {
 		if (currentPage < 1) {
 			return 1;
 		}
@@ -45,4 +49,14 @@ public class PaginatesServiceImpl {
 		}
 		return currentPage;
 	}
+	
+	protected int CheckLimit(int limit) {
+		if (limit < 0) {
+			return 1;
+		}
+		else
+			return limit;
+	}
+	
+	
 }
