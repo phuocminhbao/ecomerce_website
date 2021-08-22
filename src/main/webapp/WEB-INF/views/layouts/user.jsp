@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="decorator"%>
-<%@include file="/WEB-INF/views/layouts/user/taglib.jsp" %>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><decorator:title default ="Master-layout"/></title>
+<title><decorator:title default="Master-layout" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -26,7 +26,7 @@
 <!-- Favicons -->
 <link rel="shortcut icon"
 	href="<c:url value ="/assets/user/ico/favicon.ico"/> ">
-<decorator:head/>
+<decorator:head />
 </head>
 <body>
 	<!-- 
@@ -44,12 +44,25 @@
 					</div>
 					<a class="active" href="index.html"> <span class="icon-home"></span>
 						Home
-					</a> <a href="#"><span class="icon-user"></span> My Account</a> <a
-						href="<c:url value="/register/"/>"><span class="icon-edit"></span> Free
-						Register </a> <a href="contact.html"><span class="icon-envelope"></span>
+					</a>
+					<c:if test="${ not empty LoginInfo }">
+						<a href="#"><span class="icon-user"></span> ${ LoginInfo.displayName }</a>
+						<a href="<c:url value="/register/"/>"><span class="icon-edit"></span>
+							Logout </a>
+					</c:if>
+					<c:if test="${ empty LoginInfo }">
+
+						<a href="<c:url value="/register/"/>"><span class="icon-edit"></span>
+							Sign up </a>
+					</c:if>
+
+					<a href="contact.html"><span class="icon-envelope"></span>
 						Contact us</a> <a href="<c:url value="/cart"/>"><span
-						class="icon-shopping-cart"></span> ${ TotalQuantyCart } Item(s) - <span
-						class="badge badge-warning"> <fmt:formatNumber type="number" groupingUsed="true" value="${ TotalPriceCart }"/> ₫</span></a>
+						class="icon-shopping-cart"></span> ${ TotalQuantyCart } Item(s) -
+						<span class="badge badge-warning"> <fmt:formatNumber
+								type="number" groupingUsed="true" value="${ TotalPriceCart }" />
+							₫
+					</span></a>
 				</div>
 			</div>
 		</div>

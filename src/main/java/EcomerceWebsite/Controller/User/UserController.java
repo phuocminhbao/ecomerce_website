@@ -1,5 +1,8 @@
 package EcomerceWebsite.Controller.User;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,4 +38,26 @@ public class UserController extends BaseController{
 		_mvShare.setViewName("user/account/register");
 		return _mvShare;
 	}
+	
+	@RequestMapping(value ="/login", method = RequestMethod.POST)
+	public ModelAndView Login(HttpSession session, @ModelAttribute("user") Users user) {
+		user = accountService.CheckAccount(user);
+		
+		if (user != null) {
+			_mvShare.setViewName("redirect:home");
+			session.setAttribute("LoginInfo", user);
+		}
+		else {
+			_mvShare.addObject("statusLog", "Logged in Fail!");
+		}
+		return _mvShare;
+	}
+	
+	@RequestMapping(value ="/logout", method = RequestMethod.GET)
+	public String Login(HttpSession session, HttpServletRequest request) {
+		session.removeAttribute("LoginInfo");
+		return "redirect:" + request.getHeader("Referer");
+	}
+	
+	
 }

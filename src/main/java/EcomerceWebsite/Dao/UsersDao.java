@@ -2,6 +2,9 @@ package EcomerceWebsite.Dao;
 
 import org.springframework.stereotype.Repository;
 
+import EcomerceWebsite.Dto.ProductsDto;
+import EcomerceWebsite.Dto.ProductsDtoMapper;
+import EcomerceWebsite.Entity.MapperUsers;
 import EcomerceWebsite.Entity.Users;
 
 @Repository
@@ -27,5 +30,12 @@ public class UsersDao extends BaseDao{
 		
 		int insert = _jdbcTemplate.update(sql.toString());
 		return insert;
+	}
+	
+	public Users GetUserByAccount(Users user) {
+		String sql = "SELECT * FROM users WHERE user = '" + user.getUser() + "'";
+		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
+
+		return result;
 	}
 }

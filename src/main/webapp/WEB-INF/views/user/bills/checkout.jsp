@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register</title>
+<title>Payment</title>
 </head>
 <body>
 	<div class="row">
@@ -44,9 +44,8 @@
 			<div class="well well-small alert alert-warning cntr">
 				<h2>50% Discount</h2>
 				<p>
-					only valid for online order. <br>
-					<br>
-					<a class="defaultBtn" href="#">Click here </a>
+					only valid for online order. <br> <br> <a
+						class="defaultBtn" href="#">Click here </a>
 				</p>
 			</div>
 			<div class="well well-small">
@@ -55,7 +54,7 @@
 			</div>
 
 			<a class="shopBtn btn-block" href="#">Upcoming products <br>
-			<small>Click to view</small></a> <br> <br>
+				<small>Click to view</small></a> <br> <br>
 			<ul class="nav nav-list promowrapper">
 				<li>
 					<div class="thumbnail">
@@ -115,69 +114,50 @@
 			<div class="row">
 				<div class="span4">
 					<div class="well">
-						<h5>CREATE YOUR ACCOUNT</h5>
 						<br />
-						<form:form action="register" method = "POST" modelAttribute="user">  
+						<form:form action ="checkout" method ="POST" modelAttribute ="bills" class="form-horizontal">
+							<h3>Your Billing Details</h3>
 							<div class="control-group">
-								<label class="control-label" for="inputEmail">E-mail
-									</label>
+								<label class="control-label">Name <sup>*</sup></label>
 								<div class="controls">
-									<form:input type="email" class="span3" placeholder="Input email" path="user" />  
+									<form:input type="text" class ="span3" placeholder=" Input name" path = "displayName" />
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="inputEmail">Password</label>
+								<label class="control-label">Email <sup>*</sup></label>
 								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Input password" path="password" /> 
+									<form:input type="text" class ="span3" placeholder=" Input email" path = "user" />
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="inputEmail">Full name</label>
-								<div class="controls">								
-									<form:input type="name" class="span3" placeholder="Input name" path="displayName" /> 
+								<label class="control-label">Phone number <sup>*</sup></label>
+								<div class="controls">
+									<form:input type="text" class ="span3" placeholder=" Input phone" path = "phone"/>
 								</div>
 							</div>
 							<div class="control-group">
-								<label class="control-label" for="inputEmail">Address</label>
-								<div class="controls">								
-									<form:input type="address" class="span3" placeholder="Input address" path="address" /> 
+								<label class="control-label">Address <sup>*</sup></label>
+								<div class="controls">
+									<form:textarea path = "address" row ="5" cols = "30"/>
 								</div>
 							</div>
-							<div class="controls">
-								<button type="submit" class="btn block">Create Your
-									Account</button>
+							<div class="control-group">
+								<label class="control-label">Note <sup>*</sup></label>
+								<div class="controls">
+									<form:textarea path = "note" row ="5" cols = "30"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls">
+									<input type="submit" name="submitAccount" value="Order"
+										class="shopBtn exclusive">
+								</div>
 							</div>
 						</form:form>
 					</div>
 				</div>
 				<div class="span1">&nbsp;</div>
-				<div class="span4">
-					<div class="well">
-						<h5>ALREADY REGISTERED ?</h5>
-						<h1>${ statusLog }</h1>
-						<form:form action="login" method = "POST" modelAttribute="user">  
-							<div class="control-group">
-								<label class="control-label" for="inputEmail">Email</label>
-								<div class="controls">
-									
-									<form:input type="email" class="span3" placeholder="Input email" path="user" /> 
-								</div>
-							</div>
-							<div class="control-group">
-								<label class="control-label" for="inputPassword">Password</label>
-								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Input password" path="password" /> 
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls">
-									<button type="submit" class="defaultBtn">Sign in</button>
-									<a href="#">Forget password?</a>
-								</div>
-							</div>
-						</form:form>
-					</div>
-				</div>
+
 			</div>
 
 		</div>
