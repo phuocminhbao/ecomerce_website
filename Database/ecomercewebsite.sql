@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 08:35 AM
+-- Generation Time: Aug 22, 2021 at 08:19 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -176,6 +176,20 @@ INSERT INTO `products` (`id`, `id_category`, `name`, `price`, `title`, `highligh
 (1033, 3, 'iPad Air 4 Wifi 64GB (2020) - Test 3', 599, 'iPad Air 4 Wifi 64GB (2020) - Test 3', 1, 1, 'Apple has introduced the iPad Air 4 Wifi 64 GB tablet (2020). This is the company\'s first device equipped with the A14 Bionic chip - Apple\'s most powerful mobile chip (in 2020). And has a makeover thanks to the design inherited from the iPad Pro with a thin screen border that curves around the device.', '2021-08-17', '2021-08-17'),
 (1034, 3, 'iPad Pro M1 11 inch WiFi 128GB (2021) - Test 3', 599, 'iPad Pro M1 11 inch WiFi 128GB (2021)- Test 3', 1, 1, 'The iPad Pro M1 11-inch Wifi 128GB tablet (2021) has been announced by Apple to become a very popular device because of its many advanced features, high applicability and is one of the most luxurious iPad models. important, bringing class to the owner.', '2021-08-17', '2021-08-17');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(11) NOT NULL,
+  `user` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `display_name` varchar(100) NOT NULL,
+  `address` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Indexes for dumped tables
 --
@@ -206,6 +220,12 @@ ALTER TABLE `products`
   ADD KEY `id_category` (`id_category`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -232,6 +252,12 @@ ALTER TABLE `menus`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10011;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
