@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2021 at 08:19 AM
+-- Generation Time: Aug 23, 2021 at 01:45 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -20,6 +20,55 @@ SET time_zone = "+00:00";
 --
 -- Database: `ecomercewebsite`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billdetail`
+--
+
+CREATE TABLE `billdetail` (
+  `id` bigint(20) NOT NULL,
+  `id_product` bigint(20) NOT NULL,
+  `id_bills` bigint(20) NOT NULL,
+  `quanty` int(11) NOT NULL,
+  `total` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `billdetail`
+--
+
+INSERT INTO `billdetail` (`id`, `id_product`, `id_bills`, `quanty`, `total`) VALUES
+(1, 1010, 6, 1, 499),
+(2, 1003, 6, 1, 499);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bills`
+--
+
+CREATE TABLE `bills` (
+  `id` bigint(20) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `total` double NOT NULL,
+  `quanty` int(11) NOT NULL,
+  `note` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bills`
+--
+
+INSERT INTO `bills` (`id`, `user`, `phone`, `display_name`, `address`, `total`, `quanty`, `note`) VALUES
+(3, 'tpgnor@gmail.com', '0903605306', 'phuoc', '1', 0, 0, '456123asd'),
+(4, 'a@gmail.com', 'a', 'phuoc', '1', 0, 0, 'a'),
+(5, 'b@gmail.com', '', 'mai', '45', 0, 0, ''),
+(6, 'b@gmail.com', '', 'mai', '45', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -124,7 +173,7 @@ INSERT INTO `menus` (`id`, `name`, `url`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` bigint(20) NOT NULL,
   `id_category` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `price` double NOT NULL,
@@ -185,14 +234,39 @@ INSERT INTO `products` (`id`, `id_category`, `name`, `price`, `title`, `highligh
 CREATE TABLE `users` (
   `id` bigint(11) NOT NULL,
   `user` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `display_name` varchar(100) NOT NULL,
   `address` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `user`, `password`, `display_name`, `address`) VALUES
+(1, 'tpgnor@gmail.com', '$2a$12$D1TOpTldqScNKfowd386t.M/eq4ttYfXE6bhsDe1rxMzw49cVfdWG', 'phuoc', '933a'),
+(2, 'a@gmail.com', '$2a$12$00DjmCaWwpPZUnAhn4mZGeN2K3sIy1RgFerxelaGPa8.DF16GHxZO', 'phuoc', '1'),
+(3, 'b@gmail.com', '$2a$12$BhKmY4py0N6kNwl7DM3AgeZ2bm8p7YASfePKgYG2oT9RhLH.yyhDe', 'mai', '45');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `billdetail`
+--
+ALTER TABLE `billdetail`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`),
+  ADD KEY `id_bills` (`id_bills`),
+  ADD KEY `id_bills_2` (`id_bills`),
+  ADD KEY `id_product_2` (`id_product`);
+
+--
+-- Indexes for table `bills`
+--
+ALTER TABLE `bills`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `category`
@@ -204,7 +278,8 @@ ALTER TABLE `category`
 -- Indexes for table `colors`
 --
 ALTER TABLE `colors`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_product` (`id_product`);
 
 --
 -- Indexes for table `menus`
@@ -230,6 +305,18 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `billdetail`
+--
+ALTER TABLE `billdetail`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `bills`
+--
+ALTER TABLE `bills`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
@@ -251,17 +338,30 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10011;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10011;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `billdetail`
+--
+ALTER TABLE `billdetail`
+  ADD CONSTRAINT `billdetail_ibfk_1` FOREIGN KEY (`id_bills`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `billdetail_ibfk_2` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `colors`
+--
+ALTER TABLE `colors`
+  ADD CONSTRAINT `colors_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`);
 
 --
 -- Constraints for table `products`
