@@ -8,5 +8,6 @@ public interface IAccountService {
 	@Autowired
 	public int AddAccount(Users user);
 	
+	@Autowired
 	public Users CheckAccount(Users user);
 }

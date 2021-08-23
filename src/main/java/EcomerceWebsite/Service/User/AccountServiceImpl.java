@@ -18,7 +18,6 @@ public class AccountServiceImpl implements IAccountService{
 		return userDao.AddAccount(user);
 	}
 
-	@Override
 	public Users CheckAccount(Users user) {
 		String pass = user.getPassword();
 		user = userDao.GetUserByAccount(user);
@@ -26,7 +25,9 @@ public class AccountServiceImpl implements IAccountService{
 			if (BCrypt.checkpw(pass, user.getPassword()) ) {
 				return user;
 			}
-			else return null;
+			else {
+				return null;
+			}
 		}
 		return null;
 	}

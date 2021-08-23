@@ -115,24 +115,24 @@
 				<div class="span4">
 					<div class="well">
 						<br />
-						<form:form action ="checkout" method ="POST" modelAttribute ="bills" class="form-horizontal">
+						<form:form action ="checkout" method ="post" modelAttribute ="bills" class="form-horizontal">
 							<h3>Your Billing Details</h3>
 							<div class="control-group">
 								<label class="control-label">Name <sup>*</sup></label>
 								<div class="controls">
-									<form:input type="text" class ="span3" placeholder=" Input name" path = "displayName" />
+									<form:input type="text" placeholder=" Input name" path = "displayName" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">Email <sup>*</sup></label>
 								<div class="controls">
-									<form:input type="text" class ="span3" placeholder=" Input email" path = "user" />
+									<form:input type="email" placeholder=" Input email" path = "user" />
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label">Phone number <sup>*</sup></label>
 								<div class="controls">
-									<form:input type="text" class ="span3" placeholder=" Input phone" path = "phone"/>
+									<form:input type="text" placeholder=" Input phone" path = "phone"/>
 								</div>
 							</div>
 							<div class="control-group">

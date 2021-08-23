@@ -47,12 +47,12 @@
 					</a>
 					<c:if test="${ not empty LoginInfo }">
 						<a href="#"><span class="icon-user"></span> ${ LoginInfo.displayName }</a>
-						<a href="<c:url value="/register/"/>"><span class="icon-edit"></span>
+						<a href="<c:url value="/logout"/>"><span class="icon-edit"></span>
 							Logout </a>
 					</c:if>
 					<c:if test="${ empty LoginInfo }">
 
-						<a href="<c:url value="/register/"/>"><span class="icon-edit"></span>
+						<a href="<c:url value="/register"/>"><span class="icon-edit"></span>
 							Sign up </a>
 					</c:if>
 

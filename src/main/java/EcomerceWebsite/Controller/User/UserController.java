@@ -40,7 +40,7 @@ public class UserController extends BaseController{
 	}
 	
 	@RequestMapping(value ="/login", method = RequestMethod.POST)
-	public ModelAndView Login(HttpSession session, @ModelAttribute("user") Users user) {
+	public ModelAndView Login(HttpSession session, @ModelAttribute Users user) {
 		user = accountService.CheckAccount(user);
 		
 		if (user != null) {

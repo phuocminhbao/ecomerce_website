@@ -55,8 +55,8 @@
 				</tbody>
             </table><br/>
 			
-	<a href="products.html" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue to buy </a>
-	<a href="login.html" class="shopBtn btn-large pull-right">Pay<span class="icon-arrow-right"></span></a>
+	<a href="<c:url value="/home"/>" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue to buy </a>
+	<a href="<c:url value="/checkout"/>" class="shopBtn btn-large pull-right">Pay<span class="icon-arrow-right"></span></a>
 
 </div>
 </div>
