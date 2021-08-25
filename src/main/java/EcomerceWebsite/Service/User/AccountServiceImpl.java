@@ -12,10 +12,15 @@ public class AccountServiceImpl implements IAccountService{
 	@Autowired
 	UsersDao userDao = new UsersDao();
 	
-	public int AddAccount(Users user) {
+	public Users setPassword(Users user) {
 		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)) );
-		
-		return userDao.AddAccount(user);
+		return user;
+	}
+	
+	public int AddAccount(Users user) {
+//		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12)) );
+//		return userDao.AddAccount(user);
+		return userDao.AddAccount(setPassword(user));
 	}
 
 	public Users CheckAccount(Users user) {

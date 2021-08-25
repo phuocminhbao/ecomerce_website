@@ -1,3 +1,3 @@
-EcomerceWebsite\Dao\MenuDaoTest.class
-EcomerceWebsite\Dao\CategoryDaoTest.class
-EcomerceWebsite\Dao\ProductsDaoTest.class
+EcomerceWebsite\Dao\CartDaoTest.class
+EcomerceWebsite\Service\User\AccountServiceImplTest.class
+EcomerceWebsite\Service\User\PaginatesServiceImplTest.class

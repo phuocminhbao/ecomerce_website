@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: EcomerceWebsite.Dao.CategoryDaoTest
+Test set: EcomerceWebsite.Dao.CartDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in EcomerceWebsite.Dao.CategoryDaoTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.3 s - in EcomerceWebsite.Dao.CartDaoTest

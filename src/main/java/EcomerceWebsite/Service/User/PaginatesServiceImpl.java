@@ -19,24 +19,24 @@ public class PaginatesServiceImpl {
 		return paginate;
 	}
 
-	private int FindEnd(int start, int limit, int totalData) {
+	protected int FindEnd(int start, int limit, int totalData) {
 		return start + limit > totalData ? totalData : (start + limit) -1;
 	}
 
-	private int FindStart(int currentPage, int limit) {
+	protected int FindStart(int currentPage, int limit) {
 		//int start = ((currentPage - 1) * limit) +1 ; This won't show the first products in database (at the 0 order)
 		int start = ((currentPage - 1) * limit);
 		return start;
 	}
 
-	private int SetInfoTotalPage(int totalData, int limit) {
+	protected int SetInfoTotalPage(int totalData, int limit) {
 		int totalPage = 0;
 		totalPage = totalData / limit;
 		totalPage = totalPage * limit < totalData ? totalPage + 1 : totalPage;
 		return totalPage;
 	}
 	
-	public int CheckCurrentPage(int currentPage, int totalPage) {
+	protected int CheckCurrentPage(int currentPage, int totalPage) {
 		if (currentPage < 1) {
 			return 1;
 		}

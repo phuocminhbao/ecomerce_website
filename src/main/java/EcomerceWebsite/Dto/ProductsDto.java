@@ -25,7 +25,7 @@ public class ProductsDto {
 	}
 	
 	
-
+	//Constructor for unit test
 	public ProductsDto (long id_product, int id_category, String name, double price, long id_color, String name_color)  {
 		super();
 		this.id_product = id_product;

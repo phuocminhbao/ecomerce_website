@@ -15,9 +15,9 @@ import EcomerceWebsite.Entity.Menus;
 @Repository
 public class MenuDao extends BaseDao{
 	
-	public MenuDao(DataSource dataSource) {
-		this._jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+//	public MenuDao(DataSource dataSource) {
+//		this._jdbcTemplate = new JdbcTemplate(dataSource);
+//	}
 
 	public List<Menus> GetDataMenus(){
 		List<Menus> list = new ArrayList<Menus>();
