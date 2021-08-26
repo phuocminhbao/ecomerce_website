@@ -7,7 +7,3 @@ services:
 before_install:
   - mysql -u root --password="" < travis.sql
 
-script: 
-  - echo "skipping tests"
-
-
