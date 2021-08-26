@@ -12,6 +12,20 @@ public class Users {
 	public Users() {
 		
 	}
+	
+	
+	// Constructor for unit test
+	public Users(long id, String user, String password, String displayName, String address) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.password = password;
+		this.displayName = displayName;
+		this.address = address;
+	}
+
+
+
 	public long getId() {
 		return id;
 	}

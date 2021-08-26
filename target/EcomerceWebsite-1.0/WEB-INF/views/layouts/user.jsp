@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="decorator"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title><decorator:title default ="Master-layout"/></title>
+<title><decorator:title default="Master-layout" /></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -26,6 +26,7 @@
 <!-- Favicons -->
 <link rel="shortcut icon"
 	href="<c:url value ="/assets/user/ico/favicon.ico"/> ">
+<decorator:head />
 </head>
 <body>
 	<!-- 
@@ -43,12 +44,25 @@
 					</div>
 					<a class="active" href="index.html"> <span class="icon-home"></span>
 						Home
-					</a> <a href="#"><span class="icon-user"></span> My Account</a> <a
-						href="register.html"><span class="icon-edit"></span> Free
-						Register </a> <a href="contact.html"><span class="icon-envelope"></span>
-						Contact us</a> <a href="cart.html"><span
-						class="icon-shopping-cart"></span> 2 Item(s) - <span
-						class="badge badge-warning"> $448.42</span></a>
+					</a>
+					<c:if test="${ not empty LoginInfo }">
+						<a href="#"><span class="icon-user"></span> ${ LoginInfo.displayName }</a>
+						<a href="<c:url value="/logout"/>"><span class="icon-edit"></span>
+							Logout </a>
+					</c:if>
+					<c:if test="${ empty LoginInfo }">
+
+						<a href="<c:url value="/register"/>"><span class="icon-edit"></span>
+							Sign up </a>
+					</c:if>
+
+					<a href="contact.html"><span class="icon-envelope"></span>
+						Contact us</a> <a href="<c:url value="/cart"/>"><span
+						class="icon-shopping-cart"></span> ${ TotalQuantyCart } Item(s) -
+						<span class="badge badge-warning"> <fmt:formatNumber
+								type="number" groupingUsed="true" value="${ TotalPriceCart }" />
+							₫
+					</span></a>
 				</div>
 			</div>
 		</div>
@@ -75,5 +89,6 @@ Lower Header Section
 	<script
 		src="<c:url value ="/assets/user/js/jquery.scrollTo-1.4.3.1-min.js"/>"></script>
 	<script src="<c:url value ="/assets/user/js/shop.js"/>"></script>
+	<decorator:getProperty property="page.script"></decorator:getProperty>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package EcomerceWebsite.Dto;
 
+import java.io.IOException;
 import java.sql.Date;
 
 // set data from Database similar to entity folder function but this product will be seperated
@@ -22,6 +23,20 @@ public class ProductsDto {
 	public ProductsDto() {
 		super();
 	}
+	
+	
+	//Constructor for unit test
+	public ProductsDto (long id_product, int id_category, String name, double price, long id_color, String name_color)  {
+		super();
+		this.id_product = id_product;
+		this.id_category = id_category;
+		this.name = name;
+		this.price = price;
+		this.id_color = id_color;
+		this.name_color = name_color;
+	}
+
+
 
 	public long getId_product() {
 		return id_product;

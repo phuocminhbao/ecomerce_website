@@ -13,7 +13,13 @@ import EcomerceWebsite.Dto.ProductsDto;
 public class CartDao extends BaseDao{
 	
 	@Autowired
-	ProductsDao productsDao = new ProductsDao();
+	private ProductsDao productsDao = new ProductsDao();
+	
+	public CartDao(	ProductsDao productsDao ) {
+		this.productsDao = productsDao;
+	}
+	
+	public CartDao() {};
 	
 	public HashMap<Long, CartDto> AddCart(long id, HashMap<Long, CartDto> cart) {
 		CartDto itemCart = new CartDto();

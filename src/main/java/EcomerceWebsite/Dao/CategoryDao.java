@@ -15,9 +15,9 @@ import EcomerceWebsite.Entity.MapperCategory;
 @Repository
 public class CategoryDao extends BaseDao{
 	
-	public CategoryDao(DataSource dataSource) {
-		this._jdbcTemplate = new JdbcTemplate(dataSource);
-	}
+//	public CategoryDao(DataSource dataSource) {
+//		this._jdbcTemplate = new JdbcTemplate(dataSource);
+//	}
 
 	public List<Category> GetDataCategory(){
 		List<Category> list = new ArrayList<Category>();
