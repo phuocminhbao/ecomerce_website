@@ -105,7 +105,7 @@
 		</div>
 		<div class="span9">
 			<ul class="breadcrumb">
-				<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+				<li><a href="<c:url value="/home"/>">Home</a> <span class="divider">/</span></li>
 				<li class="active">Login</li>
 			</ul>
 			<h3>User</h3>

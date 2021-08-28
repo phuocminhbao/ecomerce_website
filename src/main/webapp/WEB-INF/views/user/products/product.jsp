@@ -19,8 +19,7 @@ Body Section
 	<div class="row product-content">
 		<div class="span9">
 			<ul class="breadcrumb">
-				<li><a href="index.html">Home</a> <span class="divider">/</span></li>
-				<li><a href="products.html">Items</a> <span class="divider">/</span></li>
+				<li><a href="<c:url value="/home"/>">Home</a> <span class="divider">/</span></li>
 				<li class="active">Item detail</li>
 			</ul>
 			<div class="well well-small">
@@ -46,7 +45,7 @@ Body Section
 						<form class="form-horizontal qtyFrm" method="get" action="<c:url value="/AddCart/${ product.id_product }"/>">
 							<div class="control-group">
 								<label class="control-label"><span><fmt:formatNumber
-											type="number" groupingUsed="true" value="${ product.price }" />₫</span></label>
+											type="number" groupingUsed="true" value="${ product.price }" />$</span></label>
 								<div class="controls">
 									<input type="number" min="0" value="0" class="span6">
 								</div>
@@ -105,12 +104,12 @@ Body Section
 										<h3>
 											<fmt:formatNumber type="number" groupingUsed="true"
 												value="${ product.price }" />
-											₫
+											$
 										</h3>
 										<div class="btn-group">
-											<a href="product_details.html" class="defaultBtn"><span
+											<a href="<c:url value="/AddCart/${ item.id_product }"/>" class="defaultBtn"><span
 												class=" icon-shopping-cart"></span> Add to cart</a> <a
-												href="product_details.html" class="shopBtn">VIEW</a>
+												href="<c:url value="/productdetail/${ item.id_product }"/>" class="shopBtn">VIEW</a>
 										</div>
 									</form>
 								</div>

@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="span12">
     <ul class="breadcrumb">
-		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li><a href="<c:url value="/home"/>">Home</a> <span class="divider">/</span></li>
 		<li class="active">Checkout</li>
     </ul>
 	<div class="well well-small">
@@ -21,7 +21,6 @@
                   <th>Product</th>
                   <th>Description</th>
                   <th>Color</th>
-                  <th>Price</th>
                   <th>Quantity </th>
                   <th>Edit </th>
                   <th>Delete </th>
@@ -34,9 +33,9 @@
 	                  <td><img width="100" src="<c:url value="/assets/user/img/${ item.value.product.img }"/>" alt=""></td>
 	                  <td>${ item.value.product.title }</td>
 	                  <td><span class="shopBtn" style="background-color: ${ item.value.product.code_color };"><span class="icon-ok"></span></span> </td>
-	                  <td><fmt:formatNumber type="number" groupingUsed="true" value="${ TotalPriceCart }"/> ₫</td>
+	                  
 	                  <td>
-						<input type="number" min="0" max="1000" class="span1" style="max-width:34px" placeholder="1" id="quanty-card-${ item.key }" size="16" type="text" value="${ item.value.quanty }">
+						<input type="number" min="1" max="1000" class="span1" style="max-width:34px" placeholder="1" id="quanty-card-${ item.key }" size="16" type="text" value="${ item.value.quanty }">
 					  </td>
 	                  <td>
 	                  	<button data-id="${ item.key }" class="btn btn-mini btn-danger edit-cart" type="button">
@@ -48,13 +47,13 @@
 	                  		<span class="icon-remove"></span>
 	                  	</a>
 	                  </td>
-	                  <td><fmt:formatNumber type="number" groupingUsed="true" value="${ item.value.totalPrice }"/> ₫</td>
+	                  <td><fmt:formatNumber type="number" groupingUsed="true" value="${ item.value.totalPrice }"/> $</td>
 	                </tr>
 				</c:forEach>
                 
 				</tbody>
             </table><br/>
-			
+	<h2 style = "text-align: right">Total Price: <fmt:formatNumber type="number" groupingUsed="true" value="${ TotalPriceCart }"/> $</h2>
 	<a href="<c:url value="/home"/>" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue to buy </a>
 	<a href="<c:url value="/checkout"/>" class="shopBtn btn-large pull-right">Pay<span class="icon-arrow-right"></span></a>
 

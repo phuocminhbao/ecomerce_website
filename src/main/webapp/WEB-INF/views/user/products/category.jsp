@@ -50,8 +50,8 @@
 						varStatus="loop">
 						<li class="span4">
 							<div class="thumbnail">
-								<a href="product_details.html" class="overlay"></a> <a
-									class="zoomTool" href="product_details.html"
+								<a href="<c:url value="/productdetail/${ item.id_product }"/>" class="overlay"></a> <a
+									class="zoomTool" href="<c:url value="/productdetail/${ item.id_product }"/>"
 									title="add to cart"><span class="icon-search"></span> QUICK
 									VIEW</a> <a href="<c:url value="/productdetail/${ item.id_product }"/>"><img
 									src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
@@ -63,13 +63,9 @@
 												$</strong>
 									</p>
 									<h4>
-										<a class="shopBtn" href="#" title="add to cart"> Add to
+										<a class="shopBtn" href="<c:url value="/AddCart/${ item.id_product }"/>" title="add to cart"> Add to
 											cart </a>
 									</h4>
-									<div class="actionList">
-										<a class="pull-left" href="#">Add to Wish List </a> <a
-											class="pull-left" href="#"> Add to Compare </a>
-									</div>
 									<br class="clr">
 								</div>
 							</div>

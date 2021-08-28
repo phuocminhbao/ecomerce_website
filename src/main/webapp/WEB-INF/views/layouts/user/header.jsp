@@ -18,9 +18,7 @@
 				<br>
 			</p>
 			<span class="btn btn-mini">[ ${ TotalQuantyCart } ] <span
-				class="icon-shopping-cart"></span></span> <span
-				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
-			<span class="btn btn-mini">&euro;</span>
+				class="icon-shopping-cart"></span></span>
 		</div>
 	</div>
 </header>
@@ -38,7 +36,7 @@ Navigation Bar Section
 			<div class="nav-collapse">
 				<ul class="nav">
 					<c:forEach var="item" items="${ menus }">
-						<li class="active"><a href="index.html">${ item.name }</a></li>
+						<li class="active"><a href="<c:url value="/${ item.name }"/>">${ item.name }</a></li>
 					</c:forEach>
 				</ul>
 				<form action="#" class="navbar-search pull-left">
