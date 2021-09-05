@@ -67,10 +67,39 @@ public class ProductsDao extends BaseDao {
 		return sql;
 	}
 	
+	private StringBuffer SqlProductByName(String name) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("WHERE 1 = 1 ");		// Make Condition always true
+		sql.append("AND p.name LIKE \"%" + name + "%\"");
+		return sql;
+	}
+	
 	private String SqlProductByPaginate(int id, int start, int totalPage) {
 		StringBuffer  sql = SqlProductByID(id); // add string builder for input other functions such as append...
 		sql.append("LIMIT  " + start + ", " + totalPage);	
 		return sql.toString();
+	}
+	
+	private String SqlProductByPaginateName(String name, int start, int totalPage) {
+		StringBuffer  sql = SqlProductByName(name); // add string builder for input other functions such as append...
+		sql.append("LIMIT  " + start + ", " + totalPage);	
+		return sql.toString();
+	}
+	
+	private StringBuffer SortProductByID(int id, String order) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("WHERE 1 = 1 ");		// Make Condition always true
+		sql.append("AND id_category = " + id + " ");
+		sql.append("ORDER BY p.price " + order + " ");
+		return sql;
+	}
+	
+	private StringBuffer SortProductByName(String name, String order) {
+		StringBuffer  sql = SqlString(); // add string builder for input other functions such as append...
+		sql.append("WHERE 1 = 1 ");		// Make Condition always true
+		sql.append("AND p.name LIKE \"%" + name + "%\"");
+		sql.append("ORDER BY p.price " + order + " ");
+		return sql;
 	}
 	
 	//jdbc query to get data from product dto 
@@ -92,12 +121,41 @@ public class ProductsDao extends BaseDao {
 		return listProducts;
 	}
 	
+	public List<ProductsDto> GetAllProductsByName(String name) {
+		String sql = SqlProductByName(name).toString();
+		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProducts;
+	}
+	
+	public List<ProductsDto> SortProductsByID(int id, String order) {
+		String sql = SortProductByID(id, order).toString();
+		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProducts;
+	}
+	
+	public List<ProductsDto> SortProductsByName(String name, String order) {
+		String sql = SortProductByName(name, order).toString();
+		List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		return listProducts;
+	}
+	
 	public List<ProductsDto> GetDataProductsPaginate(int id, int start, int totalPage) {
 		StringBuffer sqlGetDataByID = SqlProductByID(id);
 		List<ProductsDto> listProductsByID = _jdbcTemplate.query(sqlGetDataByID.toString(), new ProductsDtoMapper());
 		List<ProductsDto> listProducts = new ArrayList<ProductsDto>();
 		if(listProductsByID.size() > 0) {
 			String sql = SqlProductByPaginate(id, start, totalPage);
+			listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+		}
+		return listProducts;
+	}
+	
+	public List<ProductsDto> GetDataProductsPaginateByName(String name, int start, int totalPage) {
+		StringBuffer sqlGetDataByName = SqlProductByName(name);
+		List<ProductsDto> listProductsByName= _jdbcTemplate.query(sqlGetDataByName.toString(), new ProductsDtoMapper());
+		List<ProductsDto> listProducts = new ArrayList<ProductsDto>();
+		if(listProductsByName.size() > 0) {
+			String sql = SqlProductByPaginateName(name, start, totalPage);
 			listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
 		}
 		return listProducts;
@@ -122,4 +180,5 @@ public class ProductsDao extends BaseDao {
 		ProductsDto product = _jdbcTemplate.queryForObject(sql, new ProductsDtoMapper());
 		return product;
 	}
+	
 }

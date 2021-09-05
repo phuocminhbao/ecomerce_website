@@ -34,23 +34,19 @@
 
 	<div class="well well-small">
 		<div class="row">
-			<span style="margin-left: 25px;">Item lists</span> 
-			<form action="<c:url value ="/search={name}"  />">
-			<select name="name" class="pull-right" >
-				<option >None</option>
-  			     <option value="lap">Low - High</option>
-				 <option value="ipad">High - Low</option>
+			<span style="margin-left: 25px;">Item lists</span> <select
+				class="pull-right">
+				<option>A - Z</option>
+				<option>High - Low</option>
 			</select>
-  			<input type="submit" value="Sort Price" class="pull-right">
-			</form>
 		</div>
 
-		<c:if test="${ productsPaginate.size() > 0 }">
+		<c:if test="${ productSearch.size() > 0 }">
 			<!-- check if product size available or not, if yes open a ul -->
 			<div class="row-fluid">
 				<ul class="thumbnails">
 
-					<c:forEach var="item" items="${ productsPaginate }"
+					<c:forEach var="item" items="${ productSearch }"
 						varStatus="loop">
 						<li class="span4">
 							<div class="thumbnail">
@@ -81,11 +77,11 @@
 						<!-- index run from 0 to end, plus index with 1 to have a valid value -->
 						<!-- if index + 1 devided by 3 with 0 reminder,or if it is the last item, it will close ul tag  -->
 						<c:if
-							test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == productsPaginate.size() }">
+							test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1)  == productSearch.size() }">
 				</ul>
 			</div>
 			<!-- if index + 1 lopp < size of product, open a new ul -->
-			<c:if test="${ (loop.index + 1) < productsPaginate.size() }">
+			<c:if test="${ (loop.index + 1) < productSearch.size() }">
 				<div class="row-fluid">
 					<ul class="thumbnails">
 			</c:if>
@@ -96,15 +92,5 @@
 	
 
 	</div>
-	<div class="pagination">
-	<c:forEach var ="item" begin ="1"  end ="${ paginateInfo.totalPage }" varStatus ="loop">
-		<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-			<a href="<c:url value ="/items/${ idCategory }/${ loop.index } "/>" class="active">${ loop.index }</a>
-		</c:if>
-		<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-			<a href="<c:url value ="/items/${ idCategory }/${ loop.index } "/>" >${ loop.index }</a>
-		</c:if>
-		</c:forEach>
-			
-	</div>
+	
 </body>

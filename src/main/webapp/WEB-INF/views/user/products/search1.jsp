@@ -35,14 +35,6 @@
 	<div class="well well-small">
 		<div class="row">
 			<span style="margin-left: 25px;">Item lists</span> 
-			<form action="<c:url value ="/search={name}"  />">
-			<select name="name" class="pull-right" >
-				<option >None</option>
-  			     <option value="lap">Low - High</option>
-				 <option value="ipad">High - Low</option>
-			</select>
-  			<input type="submit" value="Sort Price" class="pull-right">
-			</form>
 		</div>
 
 		<c:if test="${ productsPaginate.size() > 0 }">
@@ -99,10 +91,10 @@
 	<div class="pagination">
 	<c:forEach var ="item" begin ="1"  end ="${ paginateInfo.totalPage }" varStatus ="loop">
 		<c:if test="${ (loop.index) == paginateInfo.currentPage }">
-			<a href="<c:url value ="/items/${ idCategory }/${ loop.index } "/>" class="active">${ loop.index }</a>
+			<a href="<c:url value ="/search${nameSearched}/${ loop.index } "/>" class="active">${ loop.index }</a>
 		</c:if>
 		<c:if test="${ (loop.index) != paginateInfo.currentPage }">
-			<a href="<c:url value ="/items/${ idCategory }/${ loop.index } "/>" >${ loop.index }</a>
+			<a href="<c:url value ="/search${nameSearched}/${ loop.index } "/>" >${ loop.index }</a>
 		</c:if>
 		</c:forEach>
 			

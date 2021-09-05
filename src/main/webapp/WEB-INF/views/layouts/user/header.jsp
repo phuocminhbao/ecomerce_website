@@ -41,8 +41,9 @@ Navigation Bar Section
 						<li class="active"><a href="index.html">${ item.name }</a></li>
 					</c:forEach>
 				</ul>
-				<form action="#" class="navbar-search pull-left">
-					<input type="text" placeholder="Search" class="search-query span2">
+				<form action="<c:url value ="/search${name}"  />">
+					<input type="text" name ="name" placeholder="Search" class="search-query span2">
+					<button>Find</button>
 				</form>
 
 				<ul class="nav pull-right">
