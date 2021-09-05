@@ -34,11 +34,15 @@
 
 	<div class="well well-small">
 		<div class="row">
-			<span style="margin-left: 25px;">Item lists</span> <select
-				class="pull-right">
-				<option>A - Z</option>
-				<option>High - Low</option>
+			<span style="margin-left: 25px;">Item lists</span> 
+			<form action="<c:url value ="/search={name}"  />">
+			<select name="name" class="pull-right" >
+				<option >None</option>
+  			     <option value="lap">Low - High</option>
+				 <option value="ipad">High - Low</option>
 			</select>
+  			<input type="submit" value="Sort Price" class="pull-right">
+			</form>
 		</div>
 
 		<c:if test="${ productsPaginate.size() > 0 }">

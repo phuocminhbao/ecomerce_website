@@ -40,7 +40,7 @@ New Products
 											<div class="thumbnail">
 												<a class="zoomTool" href="product_details.html"
 													title="add to cart"><span class="icon-search"></span>
-													QUICK VIEW</a> <a href="#" class="tag"></a> <a
+													QUICK VIEW</a> <a href="productdetail/${ item.id_product }" class="tag"></a> <a
 													href="product_details.html"><img
 													src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
 											</div>
@@ -117,11 +117,7 @@ New Products
 		</div>
 
 		<hr>
-		<div class="well well-small">
-			<a class="btn btn-mini pull-right" href="#">View more <span
-				class="icon-plus"></span></a> All products
-		</div>
-
+		
 	</div>
 </body>
 

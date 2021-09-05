@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: EcomerceWebsite.Service.User.AccountServiceImplTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.246 s - in EcomerceWebsite.Service.User.AccountServiceImplTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.424 s - in EcomerceWebsite.Service.User.AccountServiceImplTest
