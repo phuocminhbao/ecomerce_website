@@ -22,9 +22,9 @@
 	<!-- setup database Mysql connector such as host, username, pass -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/ecomercewebsite"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value=""></property>
+		<property name="url" value="jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_6315a2cb71f76e6?reconnect=true:3306/ecomercewebsite"></property>
+		<property name="username" value="b77633c69ca86b"></property>
+		<property name="password" value="db690fc5"></property>
 	</bean>
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
