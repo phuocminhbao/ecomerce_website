@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="span4">
 			<h1>
-				<a class="logo" href="index.html"><span></span> <img
+				<a class="logo" href="<c:url value="/home"/>"><span></span> <img
 					src="<c:url value ="/assets/user/img/logo.png"/>" alt="shop">
 				</a>
 			</h1>
@@ -18,9 +18,7 @@
 				<br>
 			</p>
 			<span class="btn btn-mini">[ ${ TotalQuantyCart } ] <span
-				class="icon-shopping-cart"></span></span> <span
-				class="btn btn-warning btn-mini">$</span> <span class="btn btn-mini">&pound;</span>
-			<span class="btn btn-mini">&euro;</span>
+				class="icon-shopping-cart"></span></span>
 		</div>
 	</div>
 </header>
@@ -38,7 +36,7 @@ Navigation Bar Section
 			<div class="nav-collapse">
 				<ul class="nav">
 					<c:forEach var="item" items="${ menus }">
-						<li class="active"><a href="index.html">${ item.name }</a></li>
+						<li class="active"><a href="<c:url value="/${ item.name }"/>">${ item.name }</a></li>
 					</c:forEach>
 				</ul>
 				<form action="<c:url value ="/search${name}"  />">
@@ -48,28 +46,7 @@ Navigation Bar Section
 
 				<ul class="nav pull-right">
 					<c:if test="${ empty LoginInfo }">
-						<li class="dropdown"><a data-toggle="dropdown"
-							class="dropdown-toggle" href="#"><span class="icon-lock"></span>Login
-								<b class="caret"></b></a>
-							<div class="dropdown-menu">
-								<form class="form-horizontal loginFrm">
-									<div class="control-group">
-										<input type="text" class="span2" id="inputEmail"
-											placeholder="Email">
-									</div>
-									<div class="control-group">
-										<input type="password" class="span2" id="inputPassword"
-											placeholder="Password">
-									</div>
-									<div class="control-group">
-										<label class="checkbox"> <input type="checkbox">
-											Remember me
-										</label>
-										<button type="submit" class="shopBtn btn-block">Sign
-											in</button>
-									</div>
-								</form>
-							</div></li>
+						
 					</c:if>
 					<c:if test="${ not empty LoginInfo }">
 						<li><a href="#">${ LoginInfo.displayName } <b

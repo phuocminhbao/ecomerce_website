@@ -17,7 +17,9 @@ Body Section
 					</c:forEach>
 					<li><a class="totalInCart" href="cart.html"><strong>Total
 								Amount <span class="badge badge-warning pull-right"
-								style="line-height: 18px;"><fmt:formatNumber type="number" groupingUsed="true" value="${ TotalPriceCart }"/> ₫</span>
+								style="line-height: 18px;"><fmt:formatNumber
+										type="number" groupingUsed="true" value="${ TotalPriceCart }" />
+									$</span>
 						</strong></a></li>
 				</ul>
 			</div>
@@ -38,11 +40,12 @@ New Products
 									<c:forEach var="item" items="${ newProducts }" varStatus="loop">
 										<li class="span3">
 											<div class="thumbnail">
-												<a class="zoomTool" href="product_details.html"
+												<a class="zoomTool" href="productdetail/${ item.id_product }"
 													title="add to cart"><span class="icon-search"></span>
 													QUICK VIEW</a> <a href="productdetail/${ item.id_product }" class="tag"></a> <a
-													href="product_details.html"><img
-													src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
+													href="productdetail/${ item.id_product }"><img
+													src="<c:url value="/assets/user/img/${ item.img }"/>"
+													alt=""></a>
 											</div>
 										</li>
 										<c:if
@@ -50,12 +53,12 @@ New Products
 								</ul>
 							</div>
 							<c:if test="${ (loop.index + 1) < newProducts.size() }">
-							<div class ="item">
-								<ul class="thumbnails">
+								<div class="item">
+									<ul class="thumbnails">
 							</c:if>
 						</c:if>
-					</c:forEach>
-				</c:if>
+						</c:forEach>
+						</c:if>
 
 					</div>
 					<a class="left carousel-control" href="#newProductCar"
@@ -79,22 +82,22 @@ New Products
 					<!-- check if product size available or not, if yes open a ul -->
 					<ul class="thumbnails">
 
-						<c:forEach var="item" items="${ highlightProducts }" varStatus="loop">
+						<c:forEach var="item" items="${ highlightProducts }"
+							varStatus="loop">
 							<li class="span4">
 								<div class="thumbnail">
-									<a class="zoomTool" href="#" title="add to cart"><span
+									<a class="zoomTool" href="productdetail/${ item.id_product }" title="add to cart"><span
 										class="icon-search"></span> QUICK VIEW</a> <a
 										href="productdetail/${ item.id_product }"><img
 										src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
 									<div class="caption">
 										<h5>${ item.name }</h5>
 										<h4>
-											<a class="defaultBtn" href="product_details.html"
-												title="Click to view"><span class="icon-zoom-in"></span></a>
-											<a class="shopBtn" href="<c:url value="/AddCart/${ item.id_product }"/>" title="add to cart"><span
-												class="icon-plus"></span></a> <span class="pull-right"><fmt:formatNumber
-													type="number" groupingUsed="true" value="${ item.price }" />
-												$</span>
+											<a class="shopBtn"
+												href="<c:url value="/AddCart/${ item.id_product }"/>"
+												title="add to cart"><span class="icon-plus"></span></a> <span
+												class="pull-right"><fmt:formatNumber type="number"
+													groupingUsed="true" value="${ item.price }" /> $</span>
 										</h4>
 									</div>
 								</div>
@@ -117,7 +120,7 @@ New Products
 		</div>
 
 		<hr>
-		
+
 	</div>
 </body>
 

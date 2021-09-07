@@ -34,15 +34,11 @@
 
 	<div class="well well-small">
 		<div class="row">
-			<span style="margin-left: 25px;">Item lists</span> 
-			<form action="<c:url value ="/search={name}"  />">
-			<select name="name" class="pull-right" >
-				<option >None</option>
-  			     <option value="lap">Low - High</option>
-				 <option value="ipad">High - Low</option>
+			<span style="margin-left: 25px;">Item lists</span> <select
+				class="pull-right">
+				<option>A - Z</option>
+				<option>High - Low</option>
 			</select>
-  			<input type="submit" value="Sort Price" class="pull-right">
-			</form>
 		</div>
 
 		<c:if test="${ productsPaginate.size() > 0 }">
@@ -54,8 +50,8 @@
 						varStatus="loop">
 						<li class="span4">
 							<div class="thumbnail">
-								<a href="product_details.html" class="overlay"></a> <a
-									class="zoomTool" href="product_details.html"
+								<a href="<c:url value="/productdetail/${ item.id_product }"/>" class="overlay"></a> <a
+									class="zoomTool" href="<c:url value="/productdetail/${ item.id_product }"/>"
 									title="add to cart"><span class="icon-search"></span> QUICK
 									VIEW</a> <a href="<c:url value="/productdetail/${ item.id_product }"/>"><img
 									src="<c:url value="/assets/user/img/${ item.img }"/>" alt=""></a>
@@ -67,13 +63,9 @@
 												$</strong>
 									</p>
 									<h4>
-										<a class="shopBtn" href="#" title="add to cart"> Add to
+										<a class="shopBtn" href="<c:url value="/AddCart/${ item.id_product }"/>" title="add to cart"> Add to
 											cart </a>
 									</h4>
-									<div class="actionList">
-										<a class="pull-left" href="#">Add to Wish List </a> <a
-											class="pull-left" href="#"> Add to Compare </a>
-									</div>
 									<br class="clr">
 								</div>
 							</div>

@@ -36,13 +36,7 @@
 		<div class="topNav">
 			<div class="container">
 				<div class="alignR">
-					<div class="pull-left socialNw">
-						<a href="#"><span class="icon-twitter"></span></a> <a href="#"><span
-							class="icon-facebook"></span></a> <a href="#"><span
-							class="icon-youtube"></span></a> <a href="#"><span
-							class="icon-tumblr"></span></a>
-					</div>
-					<a class="active" href="index.html"> <span class="icon-home"></span>
+					<a class="active" href="<c:url value="/home"/>"> <span class="icon-home"></span>
 						Home
 					</a>
 					<c:if test="${ not empty LoginInfo }">
@@ -56,12 +50,11 @@
 							Sign up </a>
 					</c:if>
 
-					<a href="contact.html"><span class="icon-envelope"></span>
-						Contact us</a> <a href="<c:url value="/cart"/>"><span
+					<a href="<c:url value="/cart"/>"><span
 						class="icon-shopping-cart"></span> ${ TotalQuantyCart } Item(s) -
 						<span class="badge badge-warning"> <fmt:formatNumber
 								type="number" groupingUsed="true" value="${ TotalPriceCart }" />
-							₫
+							$
 					</span></a>
 				</div>
 			</div>
