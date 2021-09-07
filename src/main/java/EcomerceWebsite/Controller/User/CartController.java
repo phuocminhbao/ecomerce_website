@@ -101,6 +101,12 @@ public class CartController extends BaseController{
 			billsService.AddBillsDetail(carts);
 		}
 		session.removeAttribute("Cart");
-		return "redirect:cart";
+		return "redirect:successorder";
+	}
+	
+	@RequestMapping(value = "successorder")
+	public ModelAndView Successful () {
+		_mvShare.setViewName("user/bills/successorder");
+		return _mvShare;
 	}
 }

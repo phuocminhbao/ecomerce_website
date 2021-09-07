@@ -149,7 +149,7 @@
 							</div>
 							<div class="control-group">
 								<div class="controls">
-									<input type="submit" name="submitAccount" value="Order"
+									<input onclick="notifyOrder();" type="submit" name="submitAccount" value="Order"
 										class="shopBtn exclusive">
 								</div>
 							</div>
@@ -162,5 +162,10 @@
 
 		</div>
 	</div>
+<script>
+	function notifyOrder(){
+		alert("Order Successfully");
+	}
+</script>
 </body>
 </html>
