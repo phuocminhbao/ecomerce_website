@@ -6,7 +6,7 @@
 		<div class="span4">
 			<h1>
 				<a class="logo" href="<c:url value="/home"/>"><span></span> <img
-					src="<c:url value ="/assets/user/img/logo.png"/>" alt="shop">
+					src="<c:url value ="/assets/user/img/logo.png"/>" alt="shop" height="30" width="60">
 				</a>
 			</h1>
 		</div>

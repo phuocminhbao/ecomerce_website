@@ -10,4 +10,7 @@ public interface IAccountService {
 	
 	@Autowired
 	public Users CheckAccount(Users user);
+	
+	@Autowired
+	public boolean checkEmail(Users user);
 }

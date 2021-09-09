@@ -72,8 +72,6 @@ New Products
 	-->
 		<div class="well well-small">
 			<h3>
-				<a class="btn btn-mini pull-right" href="products.html"
-					title="View more">View More<span class="icon-plus"></span></a>
 				Featured Products
 			</h3>
 			<hr class="soften" />

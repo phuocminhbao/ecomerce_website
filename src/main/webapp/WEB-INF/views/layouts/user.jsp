@@ -47,7 +47,7 @@
 					<c:if test="${ empty LoginInfo }">
 
 						<a href="<c:url value="/register"/>"><span class="icon-edit"></span>
-							Sign up </a>
+							Sign up/Sign in </a>
 					</c:if>
 
 					<a href="<c:url value="/cart"/>"><span

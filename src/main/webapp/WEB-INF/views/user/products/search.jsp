@@ -27,18 +27,17 @@
 
 .pagination a:hover:not (.active ) {
 	background-color: #ddd;
+	
 }
+
+
 </style>
 </head>
 <body>
 
 	<div class="well well-small">
 		<div class="row">
-			<span style="margin-left: 25px;">Item lists</span> <select
-				class="pull-right">
-				<option>A - Z</option>
-				<option>High - Low</option>
-			</select>
+			<span style="margin-left: 25px;">Item lists</span> 
 		</div>
 
 		<c:if test="${ productSearch.size() > 0 }">
@@ -66,10 +65,7 @@
 										<a class="shopBtn" href="#" title="add to cart"> Add to
 											cart </a>
 									</h4>
-									<div class="actionList">
-										<a class="pull-left" href="#">Add to Wish List </a> <a
-											class="pull-left" href="#"> Add to Compare </a>
-									</div>
+						
 									<br class="clr">
 								</div>
 							</div>

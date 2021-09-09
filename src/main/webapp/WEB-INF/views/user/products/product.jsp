@@ -46,22 +46,9 @@ Body Section
 							<div class="control-group">
 								<label class="control-label"><span><fmt:formatNumber
 											type="number" groupingUsed="true" value="${ product.price }" />$</span></label>
-								<div class="controls">
-									<input type="number" min="0" value="0" class="span6">
-								</div>
+								
 							</div>
 
-							<div class="control-group">
-								<label class="control-label"><span>Color</span></label>
-								<div class="controls">
-									<select class="span11">
-										<option>Red</option>
-										<option>Purple</option>
-										<option>Pink</option>
-										<option>Red</option>
-									</select>
-								</div>
-							</div>
 							<h4>${ product.title }</h4>
 								<button type="submit" class="shopBtn">
 									<span class=" icon-shopping-cart"></span> Add to cart
