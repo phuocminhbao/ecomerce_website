@@ -27,13 +27,20 @@ public class UserController extends BaseController{
 	
 	@RequestMapping(value ="/register", method = RequestMethod.POST)
 	public ModelAndView CreateAccount(@ModelAttribute("user") Users user) {
-		int count = accountService.AddAccount(user);
-		if (count > 0) {
-			_mvShare.addObject("status", "Sign Up Success!");
+		boolean checkEmail = accountService.checkEmail(user);
+		if (checkEmail == false) {
+			int count = accountService.AddAccount(user);
+			if (count > 0) {
+				_mvShare.addObject("status", "Sign Up Success!");
+			}
+			else {
+				_mvShare.addObject("status", "Sign Up Fail!");
+			}
 		}
 		else {
-			_mvShare.addObject("status", "Sign Up Fail!");
+			_mvShare.addObject("status", "Email alreay existed");
 		}
+		
 //		_mvShare.addObject("status", true);
 		_mvShare.setViewName("user/account/register");
 		return _mvShare;
@@ -41,15 +48,20 @@ public class UserController extends BaseController{
 	
 	@RequestMapping(value ="/login", method = RequestMethod.POST)
 	public ModelAndView Login(HttpSession session, @ModelAttribute Users user) {
-		user = accountService.CheckAccount(user);
-		
-		if (user != null) {
-			_mvShare.setViewName("redirect:home");
-			session.setAttribute("LoginInfo", user);
+		boolean checkEmail = accountService.checkEmail(user);
+		if (checkEmail == true) {
+			user = accountService.CheckAccount(user);
+			if (user != null) {
+				_mvShare.setViewName("redirect:home");
+				session.setAttribute("LoginInfo", user);
+			}
+			else {
+				_mvShare.addObject("statusLog", "Wrong password");
+			}
 		}
 		else {
-			_mvShare.addObject("statusLog", "Logged in Fail!");
-		}
+				_mvShare.addObject("statusLog", "Wrong email");
+			}
 		return _mvShare;
 	}
 	

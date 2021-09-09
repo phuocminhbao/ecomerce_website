@@ -22,25 +22,26 @@
 				<div class="span4">
 					<div class="well">
 						<h5>CREATE YOUR ACCOUNT</h5>
+						<h1>${ status }</h1>
 						<br />
 						<form:form action="register" method = "POST" modelAttribute="user">  
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">E-mail
 									</label>
 								<div class="controls">
-									<form:input type="email" class="span3" placeholder="Input email" path="user" />  
+									<form:input type="email" class="span3" placeholder="Input email" path="user" required="required"/>  
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">Password</label>
 								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Input password" path="password" /> 
+									<form:input type="password" class="span3" placeholder="Input password" path="password" required="required" /> 
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="inputEmail">Full name</label>
-								<div class="controls">								
-									<form:input type="name" class="span3" placeholder="Input name" path="displayName" /> 
+								<div class="controls" >								
+									<form:input type="name"  class="span3" placeholder="Input name"  path="displayName" required="required"/> 
 								</div>
 							</div>
 							<div class="control-group">
@@ -66,13 +67,13 @@
 								<label class="control-label" for="inputEmail">Email</label>
 								<div class="controls">
 									
-									<form:input type="email" class="span3" placeholder="Input email" path="user" /> 
+									<form:input type="email" class="span3" placeholder="Input email" path="user" required="required"/> 
 								</div>
 							</div>
 							<div class="control-group">
 								<label class="control-label" for="inputPassword">Password</label>
 								<div class="controls">
-									<form:input type="password" class="span3" placeholder="Input password" path="password" /> 
+									<form:input type="password"  class="span3" placeholder="Input password"  path="password" required="required"/> 
 								</div>
 							</div>
 							<div class="control-group">

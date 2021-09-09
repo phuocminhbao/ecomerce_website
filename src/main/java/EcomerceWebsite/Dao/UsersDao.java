@@ -1,5 +1,6 @@
 package EcomerceWebsite.Dao;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
 import EcomerceWebsite.Dto.ProductsDto;
@@ -31,9 +32,13 @@ public class UsersDao extends BaseDao{
 	}
 	
 	public Users GetUserByAccount(Users user) {
-		String sql = "SELECT * FROM users WHERE user = '" + user.getUser() + "'";
-		Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
-
-		return result;
+		try {
+			String sql = "SELECT * FROM users WHERE user = '" + user.getUser() + "'";
+			Users result = _jdbcTemplate.queryForObject(sql, new MapperUsers());
+			return result;
+		}
+		catch (EmptyResultDataAccessException e) {
+			return null;
+		}
 	}
 }

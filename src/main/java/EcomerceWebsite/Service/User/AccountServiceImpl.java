@@ -36,4 +36,17 @@ public class AccountServiceImpl implements IAccountService{
 		}
 		return null;
 	}
+	
+	public boolean checkEmail(Users user) {
+//		String email = user.getUser();
+		user = userDao.GetUserByAccount(user);
+		if (user != null) {
+				return true;
+			}
+			else {
+				return false;
+			}
+	
+	}
+	
 }
