@@ -10,7 +10,7 @@ public class PaginatesServiceImplTest {
 	@Test
 	public void testFindEndWhenTotaldataDivisibleByLimit() {
 		int end = 9;
-		int limit = end;
+		int limit = 9;
 		
 		//Test at starting as first product 
 		int start1 =1;
@@ -20,8 +20,7 @@ public class PaginatesServiceImplTest {
 		//Test at starting as different order of product
 		assertTrue(service.FindEnd(5, limit, 18) > 5);		//End must higher than start
 		assertTrue(service.FindEnd(5, limit, 18) > limit);	//End must higher than limit of product in each page
-		assertTrue(service.FindEnd(4, limit, 15) > 4);		//End must higher than start
-		assertTrue(service.FindEnd(4, limit, 15) > limit);	//End must higher than limit of product in each page
+
 	}
 	
 	@Test
@@ -30,12 +29,12 @@ public class PaginatesServiceImplTest {
 		
 		assertEquals(5, service.FindEnd(1, limit, 6));		//End must = limit	
 		assertEquals(27, service.FindEnd(25, limit, 27));	//End must = total data
-		assertTrue(service.FindEnd(1, limit, 3) < limit);	//End must less than limit
+		assertTrue(service.FindEnd(1, limit, 3) < limit);	//End must less than limit for the first page
 		
 	}
 	
 	@Test
-	public void testFindStartOfLimit9() {
+	public void testFindStartFromPage1To3() {		//Assume current page can not be negative because it already checked 
 		int startList[] = {0, 9, 18};
 		int pages[] = {1, 2, 3};
 		int limit =9;
@@ -48,15 +47,6 @@ public class PaginatesServiceImplTest {
 //		assertEquals(18, service.FindStart(3, 9));	//Order of first product showed in third page
 	}
 	
-	@Test
-	public void testFindStartOfLimit5() {
-		int startList[] = {0, 5, 10, 15};
-		int pages[] = {1, 2, 3, 4};
-		int limit = 5;
-		for (int i = 0; i < startList.length; i++) {
-			assertEquals(startList[i], service.FindStart(pages[i], limit));
-		}
-	}
 	
 	@Test
 	public void testSetInfoTotalPageWhenTotalPageDivisibleByLimit() {
