@@ -28,7 +28,7 @@ II. To run the website locally:
     11. Right click on project folder and choose "Run on server"
 III. Funtionality and Description
     1. Sign up/ Sign in and Logout
-    2. Display menu from MySQL db
+    2. Display menu from MySQL database
     3. Display items
     4. Display related items 
     5. Display the product in detail
@@ -36,5 +36,5 @@ III. Funtionality and Description
     5. Cart management: Add, delete, update items on the cart 
     6. Search items
     7. Payment
-    8. Save bills and bill details on datababase
+    8. Save bills and bill details on database
     
